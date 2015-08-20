@@ -5,9 +5,9 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Introduction | Haxe and Node.js</title>
+        <title>Installation | Haxe and Node.js</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="There used to be a website (really old, when Haxe was &quot;haXe&quot;) that got you started with Node and Haxe.">
+        <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
         
         
@@ -15,18 +15,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         
-    <link rel="stylesheet" href="gitbook/style.css">
+    <link rel="stylesheet" href="../gitbook/style.css">
     
     
 
         
     
     
-    <link rel="next" href="./haxenode/what.html" />
+    <link rel="next" href="../haxenode/example.html" />
     
+    
+    <link rel="prev" href="../haxenode/download.html" />
     
 
         
@@ -34,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="0" data-basepath="." data-revision="Thu Aug 20 2015 23:21:16 GMT+0200 (CEST)">
+    <div class="book" data-level="4" data-basepath=".." data-revision="Thu Aug 20 2015 23:21:16 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -51,10 +53,10 @@
 
         
     
-        <li class="chapter active" data-level="0" data-path="index.html">
+        <li class="chapter " data-level="0" data-path="index.html">
             
                 
-                    <a href="./index.html">
+                    <a href="../index.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -67,7 +69,7 @@
         <li class="chapter " data-level="1" data-path="haxenode/what.html">
             
                 
-                    <a href="./haxenode/what.html">
+                    <a href="../haxenode/what.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -82,7 +84,7 @@
         <li class="chapter " data-level="2" data-path="haxenode/why.html">
             
                 
-                    <a href="./haxenode/why.html">
+                    <a href="../haxenode/why.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -97,7 +99,7 @@
         <li class="chapter " data-level="3" data-path="haxenode/download.html">
             
                 
-                    <a href="./haxenode/download.html">
+                    <a href="../haxenode/download.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -109,10 +111,10 @@
             
         </li>
     
-        <li class="chapter " data-level="4" data-path="haxenode/installation.html">
+        <li class="chapter active" data-level="4" data-path="haxenode/installation.html">
             
                 
-                    <a href="./haxenode/installation.html">
+                    <a href="../haxenode/installation.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -127,7 +129,7 @@
         <li class="chapter " data-level="5" data-path="haxenode/example.html">
             
                 
-                    <a href="./haxenode/example.html">
+                    <a href="../haxenode/example.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -142,7 +144,7 @@
         <li class="chapter " data-level="6" data-path="haxenode/resource.html">
             
                 
-                    <a href="./haxenode/resource.html">
+                    <a href="../haxenode/resource.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -277,7 +279,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="./" >Haxe and Node.js</a>
+        <a href="../" >Haxe and Node.js</a>
     </h1>
 </div>
 
@@ -287,11 +289,25 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="haxe-and-node-js">Haxe and Node.js</h1>
-<p>There used to be a website (really old, when Haxe was &quot;haXe&quot;) that got you started with Node and Haxe.</p>
-<p>But that is no more. So I decided to get some of that back.
-Based upon the information from the old site and my own need to document this.</p>
-
+                        <h1 id="install-haxenode">Install Haxenode</h1>
+<h2 id="install-node-externs-for-haxe">Install node externs for Haxe</h2>
+<p>Setup haxelib if you haven&apos;t done so already</p>
+<pre><code>haxelib setup
+</code></pre><p>And follow instructions.</p>
+<p>Haxe will have default externs for working with <code>node.js</code> : <a href="https://github.com/HaxeFoundation/hxnodejs/" target="_blank">https://github.com/HaxeFoundation/hxnodejs/</a> but I have no idea when that will be released.</p>
+<p>Currently I would suggest you install
+<a href="https://github.com/clemos/haxe-js-kit" target="_blank">https://github.com/clemos/haxe-js-kit</a>.
+It has all the externs for <code>node.js</code> and <strong>extras</strong>!</p>
+<h2 id="install-js-kit-using-haxelib">Install <strong>js-kit</strong> using haxelib:</h2>
+<p>Currently this is done via git, but it will not change a lot, so you could ignore this message :D</p>
+<pre><code>haxelib git js-kit https://github.com/clemos/haxe-js-kit.git haxelib
+</code></pre><p>(optional) check that js-kit was installed successfully</p>
+<pre><code>haxelib list
+</code></pre><p>search for js-kit:</p>
+<pre><code>...
+js-kit: git [dev:/usr/lib/haxe/lib/js-kit/git]
+...
+</code></pre>
                     
                     </section>
                 
@@ -301,14 +317,16 @@ Based upon the information from the old site and my own need to document this.</
         </div>
 
         
+        <a href="../haxenode/download.html" class="navigation navigation-prev " aria-label="Previous page: Download"><i class="fa fa-angle-left"></i></a>
         
-        <a href="./haxenode/what.html" class="navigation navigation-next navigation-unique" aria-label="Next page: What is it"><i class="fa fa-angle-right"></i></a>
+        
+        <a href="../haxenode/example.html" class="navigation navigation-next " aria-label="Next page: Example"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
 
         
-<script src="gitbook/app.js"></script>
+<script src="../gitbook/app.js"></script>
 
 <script>
 require(["gitbook"], function(gitbook) {

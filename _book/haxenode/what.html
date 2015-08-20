@@ -1,0 +1,607 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>What is it | Haxe and Node.js</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.2.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../haxenode/why.html" />
+    
+    
+    <link rel="prev" href="../index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="1" data-basepath=".." data-revision="Thu Aug 20 2015 23:21:16 GMT+0200 (CEST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1" data-path="haxenode/what.html">
+            
+                
+                    <a href="../haxenode/what.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        What is it
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="haxenode/why.html">
+            
+                
+                    <a href="../haxenode/why.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Why Haxe?
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="haxenode/download.html">
+            
+                
+                    <a href="../haxenode/download.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Download
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="haxenode/installation.html">
+            
+                
+                    <a href="../haxenode/installation.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Installation
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="haxenode/example.html">
+            
+                
+                    <a href="../haxenode/example.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Example
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="haxenode/resource.html">
+            
+                
+                    <a href="../haxenode/resource.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Resources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" >
+            
+            <span><b>7.</b> [Community]</span>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" >
+            
+            <span><b>8.</b> [haxelib]</span>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" >
+            
+            <span><b>9.</b> [Haxejs]</span>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" >
+            
+            <span><b>10.</b> [Learn]</span>
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Haxe and Node.js</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="what-is-haxe-node">What is Haxe Node?</h1>
+<h2 id="all-the-power-of-haxe">All the power of Haxe</h2>
+<ul>
+<li><a href="http://haxe.org/ref/type_advanced&quot;" target="_blank">Strong Typing</a> </li>
+<li><a href="http://haxe.org/ref/inline&quot;" target="_blank">Inlining</a> </li>
+<li><a href="http://haxe.org/ref/oop&quot;" target="_blank">Interfaces</a> </li>
+<li><a href="http://haxe.org/ref/type_infer&quot;" target="_blank">Type inference</a> </li>
+<li><a href="http://haxe.org/ref/type_params&quot;" target="_blank">Generics</a></li>
+<li><a href="http://haxe.org/ref/packages&quot;" target="_blank">Packages</a></li>
+<li><a href="http://haxe.org/ref/oop&quot;" target="_blank">Classes</a></li>
+<li><a href="http://haxe.org/ref/conditionals&quot;" target="_blank">Conditionals</a> </li>
+<li><a href="http://haxe.org/manual/macros&quot;" target="_blank">Macros</a></li>
+<li><a href="http://haxe.org/ref/enums&quot;" target="_blank">Enums</a></li>
+<li><a href="http://haxe.org/ref/iterators&quot;" target="_blank">Iterators</a> </li>
+</ul>
+<h2 id="all-the-benefits-of-node-js">All the benefits of Node.js</h2>
+<p>event-driven, non-blocking design. Use npm and many open-source node.js libraries and frameworks.</p>
+<h2 id="what-is-strong-typing">What is Strong Typing?</h2>
+<p>The Haxe compiler uses static type checking at compile-time so you have a stronger guarantee of the application&apos;s behavior at run-time. Haxe uses several kinds of types.</p>
+<pre><code>class Int extends Float { }
+</code></pre><p><strong>Enum</strong>
+has a finite number of constructors</p>
+<pre><code>enum Bool {
+    true;
+    false;
+}
+</code></pre><p><strong>Dynamic</strong> 
+skips compile-time type-checking</p>
+<p><strong>Typedef</strong>
+Define a structure or long type to reuse throughout your applications.</p>
+<pre><code>typedef User = {
+    var age : Int;
+    var name : String;
+}
+// ....
+var u : User = { age : 26, name : &quot;Tom&quot; };
+</code></pre><p><strong>Function</strong>
+Define function types as variables.</p>
+<pre><code>// assign a function type to a variable &quot;type&quot;, function accepts a String and returns a String
+
+var ftype : String -&gt; String
+
+// create a function
+function modifyString(s : String) : String {
+    return StringTools.replace(s,&quot; &quot;,&quot;_&quot;);
+}
+
+// check against it
+static function main(){
+    trace( type(modifyString) == f ); // print true
+}
+</code></pre><p><strong>Extensions</strong>
+Extends either a typedef or a class on-the-fly.
+Or create cascading typedefs.</p>
+<pre><code>// anonymous typedef extension
+
+typedef Point = {
+    var x : Int;
+    var y : Int;
+}
+
+// define &apos;p&apos; as a Point with an additional field z
+
+var p : {&gt; Point, z : Int }
+p = { x : 0, y : 0, z : 0 }; // works
+p = { x : 0, y : 0 }; // fails
+</code></pre><p>Use Extensions to create cascading typedefs</p>
+<pre><code>typedef Point = {
+    var x : Int;
+    var y : Int;
+}
+typedef Point3D = {&gt; Point,
+    var z : Int;
+}
+</code></pre><h2 id="what-is-inlining">What is Inlining?</h2>
+<p><a href="">http://haxe.org/ref/inline</a></p>
+<p>The main advantage of using &#x201C;inline&#x201D; is that you can use as many variables as you want without slowing down your code with these variables accesses since the value is directly replaced in the compiled/generated code.</p>
+<pre><code>// Inlining Static Variables
+class Test {
+    static inline var WIDTH = 500; // type Int inferred
+
+    static function main() {
+        trace(WIDTH);
+        // variable is replaced with 500 at compile-time
+    }
+}
+</code></pre><p><a href="">http://haxe.org/ref/inline</a></p>
+<p>The principle is the same for a method. The less expensive function call is the one that is never done. In order to achieve that for small methods that are often called, you can &#x201C;inline&#x201D; the method body at the place the method is called.</p>
+<pre><code>// Inlining Methods
+class Point {
+    public var x : Float;
+    public var y : Float;
+    public function new(x,y) { this.x = x; this.y = y; }
+    public inline function add(x2,y2) { 
+    return new Point(x+x2,y+y2); }
+}
+class Test {
+    public static function main() {
+        var p = new Point(1,2);
+        var p2 = p.add(2,3);
+         // is the same as writing :
+        var p2 = new Point(p.x+2,p.y+3);
+    }
+}
+</code></pre><h2 id="what-is-an-interface">What is an Interface?</h2>
+<p><a href="">http://en.wikipedia.org/wiki/Interface_(computing)#Software_interfaces_in_object_oriented_languages</a></p>
+<p>In object-oriented languages the term &#x201C;interface&#x201D; is often used to define an abstract type that contains no data, but exposes behaviors defined as methods. A class having all the methods corresponding to that interface is said to implement that interface. Furthermore, a class can implement multiple interfaces, and hence can be of different types at the same time.</p>
+<p>An interface is hence a type definition; anywhere an object can be exchanged (in a function or method call) the type of the object to be exchanged can be defined in terms of an interface instead of a specific class. This allows later code to use the same function exchanging different object types; hence such code turns out to be more generic and reusable.</p>
+<h2 id="what-is-type-inference">What is Type Inference?</h2>
+<p><a href="">http://haxe.org/ref/type_infer</a></p>
+<p>Type Inference means that the type information is not only checked in the program, it&apos;s also carried when typing, so it doesn&apos;t have to be resolved immediately. For example a local variable can be declared without any type (it will have the type Unknown) and when first used, its type will be set to the corresponding one.
+Type Inference enables the whole program to be strictly typed without any need to put types everywhere. In particular, local variables do not need to be typed, their types will be inferred when they are first accessed for reading or writing</p>
+<pre><code>var loc;
+type(loc); // print Unknown&lt;0&gt;
+loc = &quot;hello&quot;;
+type(loc); // print String
+</code></pre><h2 id="what-are-generics">What are Generics?</h2>
+<p><a href="">http://haxe.org/ref/type_params</a></p>
+<p>A class can have several type parameters that can be used to get extensible behavior.
+You can define your own parameterized classes with several type parameters for your own usage when you need it.</p>
+<pre><code>class GenericTest&lt;T&gt; {
+      private var something:T;
+      public function putSomething(value:T):T{
+        something = value;
+        return something;
+      }
+    public function getSomething():T {
+        return something;
+    }
+}
+
+// Generic Factory Method example by &lt;em&gt;hhoelzer&lt;/em&gt;
+class Item&lt;T&gt; {
+    public var value:T;
+    // factory method
+    public static function create &lt;T&gt; ():Item&lt;T&gt; {
+        return new Item&lt;T&gt;();
+    }
+    private function new () {}  // private constructor
+}
+
+// test it
+class Main {
+    public static function main () {
+        \* this works because of type-inference, the compiler
+        knows that the return type must be of type Item&lt;Int&gt;*/
+        var myItem:Item&lt;Int&gt; = Item.create(); 
+        myItem.value = 10; // works
+        trace(myItem.value); // 10
+
+        // complex type example
+        var myItem2:Item&lt;Array&lt;Int&gt;&gt; = Item.create();
+        myItem2.value = [1, 2, 3]; // works too
+        trace(myItem2.value); // [1,2,3]
+      }
+}
+</code></pre><h2 id="what-is-a-package">What is a Package?</h2>
+<p><a href="">http://haxe.org/ref/packages</a></p>
+<p>Packages are used to organize and contain classes in namespaces to prevent collisions and group functionally similar files together.</p>
+<p>the class<br><code>haxe.unit.TestCase</code></p>
+<p>belongs to package<br><code>haxe.unit</code></p>
+<p>and the class file is located in<br><code>haxe/unit/TestCase.hx</code></p>
+<blockquote>
+<p>// in osx: /usr/lib/haxe/std/haxe/unit/TestCase.hx</p>
+</blockquote>
+<h2 id="what-is-a-class">What is a Class?</h2>
+<p><a href="">http://en.wikipedia.org/wiki/Class_(computer_programming)</a></p>
+<p>In object-oriented programming, a class is a construct that is used as a blueprint to create instances of itself &#x2013; referred to as class instances, class objects, instance objects or simply objects. A class defines constituent members which enable these class instances to have state and behavior. Data field members (member variables or instance variables) enable a class object to maintain state. Other kinds of members, especially methods, enable a class object&apos;s behavior. Class instances are of the type of the associated class.</p>
+<h2 id="what-is-a-macro">What is a Macro?</h2>
+<p><a href="">http://haxe.org/manual/macros</a></p>
+<p>Some languages features such as C #define enable the user to define syntax shortcuts. They are useful to perform some pseudo-code-generation, but at the same time allow to modify the syntax of the language, making the code unreadable for other developers.</p>
+<p>The Haxe macro system allows powerful compile-time code-generation without modifying the Haxe syntax.</p>
+<p>Macros are defined with the <code>@:macro</code> Metadata</p>
+<pre><code>// MyMacro.hx
+
+import haxe.macro.Expr;
+class MyMacro {
+    @:macro public static function getDate() {
+        var date = Date.now().toString();
+        var pos = haxe.macro.Context.currentPos();
+        return { expr : EConst(CString(date)), pos : pos };
+    }
+}
+
+// Test.hx
+class Test {
+    static function main(){
+        var now = MyMacro.getDate(); // String is inferred
+        trace(now);
+        // print the Date and time this file was &lt;strong&gt;compiled.&lt;/strong&gt;
+    }
+}
+</code></pre><p>&gt;
+Note: unlike <em>inline</em> functions you can do actual code generation inside the macro, before it gets compiled.
+I highly recommend reading more about this feature if you are new to it, it is very powerful.</p>
+<blockquote>
+</blockquote>
+<h2 id="what-is-an-enum">What is an Enum?</h2>
+<p><a href="">http://haxe.org/ref/enums</a>
+Enums are different to classes and are declared with a finite number of constructors.
+When you want to ensure that only a fixed number of values are used then enums are the best thing since they guarantee that other values cannot be constructed.</p>
+<pre><code>enum Color {
+    red;
+    green;
+    blue;
+}
+
+class ColorTools {
+    static function toInt( c : Color ) : Int {
+        return switch( c ) {
+            case red: 0xFF0000;
+            case green: 0x00FF00;
+            case blue: 0x0000FF;
+        }
+    }
+}
+</code></pre><h2 id="what-is-an-iterator">What is an Iterator?</h2>
+<p><a href="">http://haxe.org/ref/iterators</a></p>
+<p>An iterator is an object which follows the Iterator typedef (The type T is the iterated type) :</p>
+<pre><code>typedef Iterator&lt;T&gt; = {
+    function hasNext() : Bool;
+    function next() : T;
+}
+</code></pre><p><a href="">http://haxe.org/ref/iterators</a></p>
+<p>You can use the for syntax in order to execute iterators. The simplest iterator is the IntIter iterator which can easily be built using the operator <code>...</code> (three dots). For example this will list all numbers from 0 to 9 :</p>
+<pre><code>for( i in 0...10 ) {
+    trace(i);
+}
+
+// Or the usual for loop :
+for( i in 0...arr.length ) {
+    foo( arr[i] );
+}
+
+// Same as :
+for( item in arr ) {
+    foo( item );
+}
+</code></pre><h2 id="what-is-conditional-compiling">What is Conditional Compiling?</h2>
+<p><a href="">http://haxe.org/ref/conditionals</a></p>
+<p>Sometimes you might want to have a single library using specific API depending on the platform it is compiled on. At some other time, you might want to do some optimizations only if you turn a flag ON. For all that, you can use conditional compilation macros (AKA preprocessor macros)
+If the following example was compiled with <code>-js out.js -D nodejs</code>
+then starting the compiled javascript file with the node command will echo &#x201C;hello javascript!&#x201D; and &#x201C;hello node.js!&#x201D; to the console.</p>
+<pre><code>// nested conditional example:
+
+#if js
+    // haXe code for javascript target
+    js.Lib.alert(&amp;ldquo;hello javascript!&amp;rdquo;);
+#if nodejs
+    // haXe code specific to nodejs
+    Node.console.log(&amp;ldquo;hello node.js!&amp;rdquo;);
+#else
+    // compile flag -D nodejs was not set
+#end
+#elseif php
+    // haXe code specific to php target
+    php.Lib.println(&amp;ldquo;hello php!&amp;rdquo;);
+#else
+    // do something else
+#end
+</code></pre><pre><code>// multiplatform code example:
+
+#if flash8
+    // haXe code specific for flash player 8
+
+#elseif flash
+    // haXe code specific for flash platform (any version)
+
+#elseif js
+    // haXe code specific for javascript plaform
+
+#elseif neko
+    // haXe code specific for neko plaform
+
+#else 
+    // do something else
+
+#error  
+    // default: &amp;ldquo;Not implemented on this platform&amp;rdquo;
+
+// or set your own error message
+#error 
+    &amp;ldquo;Custom error message&amp;rdquo;
+#end
+</code></pre>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../haxenode/why.html" class="navigation navigation-next " aria-label="Next page: Why Haxe?"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
