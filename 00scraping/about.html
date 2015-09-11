@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Example | Haxe and Node.js</title>
+        <title>Scraping | Haxe and Node.js</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -29,10 +29,10 @@
         
     
     
-    <link rel="next" href="../haxenode/resource.html" />
+    <link rel="next" href="../00scraping/installation.html" />
     
     
-    <link rel="prev" href="../haxenode/installation.html" />
+    <link rel="prev" href="../haxenode/resource.html" />
     
 
         
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="2.5" data-basepath=".." data-revision="Fri Sep 11 2015 16:56:27 GMT+0200 (CEST)">
+    <div class="book" data-level="3" data-basepath=".." data-revision="Fri Sep 11 2015 16:56:27 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -219,7 +219,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.5" data-path="haxenode/example.html">
+        <li class="chapter " data-level="2.5" data-path="haxenode/example.html">
             
                 
                     <a href="../haxenode/example.html">
@@ -254,7 +254,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3" data-path="00scraping/about.html">
+        <li class="chapter active" data-level="3" data-path="00scraping/about.html">
             
                 
                     <a href="../00scraping/about.html">
@@ -566,51 +566,23 @@
                 
                     <section class="normal" id="section-">
                     
-                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/haxenode/example.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="node-js-example">Node.js example</h1>
-<h3 id="node-js">Node.js</h3>
-<pre><code>// example.js
+                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/00scraping/about.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="about-scraping">About scraping</h1>
+<blockquote>
+<p>Web scraping is the process of programmatically retrieving information from the Internet. As the volume of data on the web has increased, this practice has become increasingly widespread, and a number of powerful services have emerged to simplify it.</p>
+<p>Web scraping (web harvesting or web data extraction) is a computer software technique of extracting information from websites.</p>
+</blockquote>
+<p>from <a href="https://en.wikipedia.org/wiki/Web_scraping" target="_blank">wikipedia</a></p>
+<p>Okay another explaination:</p>
+<blockquote>
+<p>Web Scraping refers to an application that processes the HTML of a Web page to extract data for manipulation such as converting the Web page to another format (i.e. HTML to WML). Web Scraping scripts and applications will simulate a person viewing a Web site with a browser. With these scripts you can connect to a Web page and request a page, exactly as a browser would do. The Web server will send back the page which you can then manipulate or extract specific information from.</p>
+</blockquote>
+<p>from <a href="http://www.webopedia.com/TERM/W/Web_Scraping.html" target="_blank">webopedia</a></p>
+<h2 id="about-this-tutorial">About this tutorial</h2>
+<p>Node.js is an easy way to do some web-scraping. 
+But there are not a lot of tutorials about Haxe and Node.js, so there are none about Haxe/Node.js and scraping.
+Not a problem, lets translate a existing tutorial to Haxe!</p>
+<p>This is the Haxe version of the tutorial posted on <a href="http://www.smashingmagazine.com/2015/04/web-scraping-with-nodejs/" target="_blank">smashmagazine</a></p>
 
-var http = require(&apos;http&apos;);
-var server = http.createServer(
-      function (req, res) {
-        res.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
-            res.end(&apos;Hello World\\n&apos;);
-           }
-     )
-
-server.listen(1337, &quot;127.0.0.1&quot;);
-console.log(&apos;Server running at http://127.0.0.1:1337/&apos;);
-</code></pre><h3 id="run">run</h3>
-<p>in <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
-Alternative names for the terminal:  ">terminal</a></p>
-<pre><code>node example.js
-# Server running at http://127.0.0.1:1337/
-</code></pre><h1 id="haxe-example">Haxe example</h1>
-<h3 id="haxe-node">haxe node</h3>
-<pre><code>// Haxenode.hx
-
-import js.Node;
-class Haxenode {
-    public static function main() {
-        var server = Node.http.createServer( function( req:NodeHttpServerReq, res:NodeHttpServerResp)
-        {
-            res.setHeader(&quot;Content-Type&quot;,&quot;text/plain&quot;);
-            res.writeHead(200);
-            res.end(&apos;Hello World\\n&apos;);
-        }
-    );
-
-    server.listen(1337,&quot;localhost&quot;);
-    trace( &apos;Server running at http://127.0.0.1:1337/&apos; );
-    }
-}
-</code></pre><h3 id="compile-run">compile &amp; run</h3>
-<p>in <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
-Alternative names for the terminal:  ">terminal</a></p>
-<pre><code>haxe -lib nodejs -js haxenode.js -main Haxenode
-node haxenode.js
-# Server running at http://127.0.0.1:1337/
-</code></pre>
                     
                     </section>
                 
@@ -620,10 +592,10 @@ node haxenode.js
         </div>
 
         
-        <a href="../haxenode/installation.html" class="navigation navigation-prev " aria-label="Previous page: Installation"><i class="fa fa-angle-left"></i></a>
+        <a href="../haxenode/resource.html" class="navigation navigation-prev " aria-label="Previous page: Resources"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../haxenode/resource.html" class="navigation navigation-next " aria-label="Next page: Resources"><i class="fa fa-angle-right"></i></a>
+        <a href="../00scraping/installation.html" class="navigation navigation-next " aria-label="Next page: Installation"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

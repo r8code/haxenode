@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Example | Haxe and Node.js</title>
+        <title>Installation | Haxe and Node.js</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -29,10 +29,10 @@
         
     
     
-    <link rel="next" href="../haxenode/resource.html" />
+    <link rel="next" href="../00scraping/example.html" />
     
     
-    <link rel="prev" href="../haxenode/installation.html" />
+    <link rel="prev" href="../00scraping/about.html" />
     
 
         
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="2.5" data-basepath=".." data-revision="Fri Sep 11 2015 16:56:27 GMT+0200 (CEST)">
+    <div class="book" data-level="3.1" data-basepath=".." data-revision="Fri Sep 11 2015 16:56:27 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -219,7 +219,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.5" data-path="haxenode/example.html">
+        <li class="chapter " data-level="2.5" data-path="haxenode/example.html">
             
                 
                     <a href="../haxenode/example.html">
@@ -270,7 +270,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1" data-path="00scraping/installation.html">
+        <li class="chapter active" data-level="3.1" data-path="00scraping/installation.html">
             
                 
                     <a href="../00scraping/installation.html">
@@ -566,50 +566,28 @@
                 
                     <section class="normal" id="section-">
                     
-                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/haxenode/example.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="node-js-example">Node.js example</h1>
-<h3 id="node-js">Node.js</h3>
-<pre><code>// example.js
-
-var http = require(&apos;http&apos;);
-var server = http.createServer(
-      function (req, res) {
-        res.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
-            res.end(&apos;Hello World\\n&apos;);
-           }
-     )
-
-server.listen(1337, &quot;127.0.0.1&quot;);
-console.log(&apos;Server running at http://127.0.0.1:1337/&apos;);
-</code></pre><h3 id="run">run</h3>
-<p>in <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
-Alternative names for the terminal:  ">terminal</a></p>
-<pre><code>node example.js
-# Server running at http://127.0.0.1:1337/
-</code></pre><h1 id="haxe-example">Haxe example</h1>
-<h3 id="haxe-node">haxe node</h3>
-<pre><code>// Haxenode.hx
-
-import js.Node;
-class Haxenode {
-    public static function main() {
-        var server = Node.http.createServer( function( req:NodeHttpServerReq, res:NodeHttpServerResp)
-        {
-            res.setHeader(&quot;Content-Type&quot;,&quot;text/plain&quot;);
-            res.writeHead(200);
-            res.end(&apos;Hello World\\n&apos;);
-        }
-    );
-
-    server.listen(1337,&quot;localhost&quot;);
-    trace( &apos;Server running at http://127.0.0.1:1337/&apos; );
-    }
-}
-</code></pre><h3 id="compile-run">compile &amp; run</h3>
-<p>in <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
-Alternative names for the terminal:  ">terminal</a></p>
-<pre><code>haxe -lib nodejs -js haxenode.js -main Haxenode
-node haxenode.js
-# Server running at http://127.0.0.1:1337/
+                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/00scraping/installation.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="installation">Installation</h1>
+<p>Read the how to install Node.js and Haxe <a href="../haxenode/download.html">here</a>
+Once you have installed Haxe you will automaticly have installed haxelib.
+The same goes for Node.js, you will have automaticly have installed NPM.</p>
+<h2 id="install-node-js-externs-for-haxe">Install Node.js externs for Haxe</h2>
+<p>Use haxelib to install <strong>js-kit</strong> :</p>
+<blockquote>
+<p>Currently this is done via git, but it will not change a lot, so you could ignore this message :D</p>
+</blockquote>
+<pre><code>haxelib git js-kit https://github.com/clemos/haxe-js-kit.git haxelib
+</code></pre><h2 id="install-cheerio-via-npm">Install cheerio via NPM:</h2>
+<p><a href="http://cheeriojs.github.io/cheerio/" target="_blank">Cheerio</a> </p>
+<blockquote>
+<p>Fast, flexible, and lean implementation of core jQuery designed specifically for the server.</p>
+</blockquote>
+<pre><code>npm install cheerio
+</code></pre><h2 id="install-request-via-npm">Install request via NPM:</h2>
+<p><a href="https://github.com/request/request" target="_blank">Request</a> </p>
+<blockquote>
+<p>Simplified HTTP request client.</p>
+</blockquote>
+<pre><code>npm install request
 </code></pre>
                     
                     </section>
@@ -620,10 +598,10 @@ node haxenode.js
         </div>
 
         
-        <a href="../haxenode/installation.html" class="navigation navigation-prev " aria-label="Previous page: Installation"><i class="fa fa-angle-left"></i></a>
+        <a href="../00scraping/about.html" class="navigation navigation-prev " aria-label="Previous page: Scraping"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../haxenode/resource.html" class="navigation navigation-next " aria-label="Next page: Resources"><i class="fa fa-angle-right"></i></a>
+        <a href="../00scraping/example.html" class="navigation navigation-next " aria-label="Next page: Example"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
