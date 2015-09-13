@@ -1,8 +1,9 @@
 #Installation
 
-Read the how to install Node.js and Haxe [here](../haxenode/download.md)
-Once you have installed Haxe you will automaticly have installed haxelib.
-The same goes for Node.js, you will have automaticly have installed NPM.
+Read the how to install **Node.js** and **Haxe** [here](../haxenode/download.md).  
+Once you have installed **Haxe** you will automatically installed `haxelib`.  
+The same goes for **Node.js**, you will have automatically installed `NPM`.
+
 
 
 ##Install Node.js externs for Haxe
@@ -16,7 +17,8 @@ haxelib git js-kit https://github.com/clemos/haxe-js-kit.git haxelib
 ```
 
 
-##Install via NPM request:
+
+##Install request via NPM :
 
 [Request](https://github.com/request/request) 
 

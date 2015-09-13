@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Resources | Haxe and Node.js</title>
+        <title>Example | Haxe and Node.js</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -29,10 +29,10 @@
         
     
     
-    <link rel="next" href="../00helloworld/about.html" />
+    <link rel="next" href="../02reading/about.html" />
     
     
-    <link rel="prev" href="../haxenode/example.html" />
+    <link rel="prev" href="../01writing/installation.html" />
     
 
         
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="2.6" data-basepath=".." data-revision="Sun Sep 13 2015 11:43:08 GMT+0200 (CEST)">
+    <div class="book" data-level="4.2" data-basepath=".." data-revision="Sun Sep 13 2015 11:43:08 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -234,7 +234,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.6" data-path="haxenode/resource.html">
+        <li class="chapter " data-level="2.6" data-path="haxenode/resource.html">
             
                 
                     <a href="../haxenode/resource.html">
@@ -336,7 +336,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="01writing/example.html">
+        <li class="chapter active" data-level="4.2" data-path="01writing/example.html">
             
                 
                     <a href="../01writing/example.html">
@@ -719,35 +719,76 @@
                 
                     <section class="normal" id="section-">
                     
-                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/haxenode/resource.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="resources">Resources</h1>
-<p>Extra info about Haxe, Node.js <strong>and</strong> the combination from the two.</p>
-<h3 id="haxe-resources">Haxe resources</h3>
-<ul>
-<li><a href="http://haxe.org" target="_blank">Haxe.org</a> </li>
-<li><a href="http://haxe.org/api" target="_blank">Haxe api</a> </li>
-<li><a href="http://lib.haxe.org/" target="_blank">Haxelib</a> </li>
-<li><a href="http://haxe.org/doc/libraries" target="_blank">Libraries &amp; Frameworks</a> </li>
-<li><a href="http://haxe.org/doc" target="_blank">Documentation &amp; Tutorials</a> </li>
-</ul>
-<h3 id="node-js-resources">Node.js resources</h3>
-<ul>
-<li><a href="http://nodejs.org/" target="_blank">Node.js</a> </li>
-<li><a href="http://nodejs.org/docs/latest/api/" target="_blank">Node.js api</a> </li>
-<li><a href="http://search.npmjs.org/" target="_blank">npm packages</a> </li>
-<li><a href="http://groups.google.com/group/nodejs" target="_blank">Node.js mailing list</a> </li>
-</ul>
-<h3 id="haxe-node-resources">Haxe / node resources</h3>
-<ul>
-<li><a href="https://github.com/clemos/haxe-js-kit" target="_blank">https://github.com/clemos/haxe-js-kit</a>.</li>
-<li><a href="https://groups.google.com/forum/#!forum/haxe-nodejs" target="_blank">haxenode-js mailing list</a> </li>
-<li><a href="http://www.sublimetext.com/" target="_blank">http://www.sublimetext.com/</a></li>
-<li><a href="http://haxe.org/com/ide" target="_blank">Other IDE/Editors</a> </li>
-</ul>
-<ul>
-<li><a href="https://github.com/abedev/npm" target="_blank">https://github.com/abedev/npm</a>
-NPM types for Haxe<pre><code>haxelib git npm https://github.com/abedev/npm
-</code></pre>Documentation can be found <a href="https://rawgit.com/abedev/npm/master/docs/index.html" target="_blank">here</a> </li>
-</ul>
+                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/01writing/example.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="example">Example</h1>
+<p>Simply write to a file.
+Example is from <a href="https://docs.nodejitsu.com/articles/file-system/how-to-write-files-in-nodejs" target="_blank">nodejitsu.com/</a></p>
+<h2 id="how-to-start">How to start</h2>
+<p>Create a folder named <strong><a href="../GLOSSARY.html#foobar" class="glossary-term" title="The terms foobar, fubar, or foo, bar, baz and qux (alternatively, quux) and sometimes norf and many others are sometimes used as placeholder names (also referred to as metasyntactic variables) in computer programming or computer-related documentation.">foobar</a></strong> (please use a better name; any name will do) and create folders <strong>bin</strong> and <strong>src</strong>.
+See example below:</p>
+<pre><code>+ foobar
+    + bin
+    + src
+        - Main.hx
+    - javascript.hxml
+</code></pre><h2 id="install">Install</h2>
+<p>check out <a href="installation.html">the installation</a>.</p>
+<h2 id="pure-node-example">Pure node example</h2>
+<pre><code>fs = require(&apos;fs&apos;);
+fs.writeFile(&apos;helloworld.txt&apos;, &apos;Hello World!&apos;, function (err) {
+    if (err) return console.log(err);
+    console.log(&apos;Hello World &gt; helloworld.txt&apos;);
+});
+</code></pre><h2 id="the-main-hx">The Main.hx</h2>
+<p>Open your favorite editor, copy/paste the code and save it in the <code>src</code> folder. </p>
+<p><em>With the current externs it&apos;s not possible to recreate example above, but we can something simular</em></p>
+<pre><code>package ;
+
+import js.Node;
+import js.node.Fs;
+
+/**
+ * @author Matthijs Kamstra aka [mck]
+ */
+class Main
+{
+    function new()
+    {
+        trace(&quot;Node.js Hello World Example&quot;);
+
+        Fs.writeFile(&apos;helloworld.txt&apos;, &apos;Hello World!&apos;);    
+
+        // this example code is closest to the pure node.js example
+        Fs.writeFile(&apos;hello.txt&apos;, &apos;hello&apos;, {}, function (err){
+            if (err != null) 
+                trace( &quot;err: &quot; + err );
+            else
+                trace(&apos;Hello &gt; hello.txt&apos;);
+        });
+    }
+
+    static public function main()
+    {
+        var main = new Main();
+    }
+}
+</code></pre><h2 id="the-haxe-build-file-javascript-hxml">The Haxe build file, javascript.<a href="../GLOSSARY.html#hxml" class="glossary-term" title="Haxe build file">hxml</a></h2>
+<p>Copy and past the following lines in a document named <code>javascript.hxml</code>
+This is the short version, you want to chech out the full version open this <a href="code/javascript.hxml">file</a>;</p>
+<pre><code># // javascript.hxml
+-lib js-kit
+-cp src
+-main Main
+-js bin/example.js
+-cmd node bin/example.js
+</code></pre><h2 id="build-js-with-haxe-and-start-node">Build js with Haxe and start Node</h2>
+<p>To finish and see what we have, build the file and see the result</p>
+<ol>
+<li>Open your <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a></li>
+<li><code>cd</code> to the correct folder where you have saved the <code>javascript.hxml</code> </li>
+<li>type <code>haxe javascript.hxml</code></li>
+<li>press enter</li>
+</ol>
 
                     
                     </section>
@@ -758,10 +799,10 @@ NPM types for Haxe<pre><code>haxelib git npm https://github.com/abedev/npm
         </div>
 
         
-        <a href="../haxenode/example.html" class="navigation navigation-prev " aria-label="Previous page: Example"><i class="fa fa-angle-left"></i></a>
+        <a href="../01writing/installation.html" class="navigation navigation-prev " aria-label="Previous page: Installation"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../00helloworld/about.html" class="navigation navigation-next " aria-label="Next page: Example Hello World"><i class="fa fa-angle-right"></i></a>
+        <a href="../02reading/about.html" class="navigation navigation-next " aria-label="Next page: Example Reading"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
