@@ -29,10 +29,10 @@
         
     
     
-    <link rel="next" href="../haxenode/resource.html" />
+    <link rel="next" href="../09slackbot/about.html" />
     
     
-    <link rel="prev" href="../haxenode/installation.html" />
+    <link rel="prev" href="../04haxelow/installation.html" />
     
 
         
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="2.5" data-basepath=".." data-revision="Sun Sep 13 2015 16:18:45 GMT+0200 (CEST)">
+    <div class="book" data-level="7.2" data-basepath=".." data-revision="Sun Sep 13 2015 16:18:45 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -219,7 +219,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.5" data-path="haxenode/example.html">
+        <li class="chapter " data-level="2.5" data-path="haxenode/example.html">
             
                 
                     <a href="../haxenode/example.html">
@@ -489,7 +489,7 @@
             
         </li>
     
-        <li class="chapter " data-level="7.2" data-path="04haxelow/example.html">
+        <li class="chapter active" data-level="7.2" data-path="04haxelow/example.html">
             
                 
                     <a href="../04haxelow/example.html">
@@ -821,57 +821,85 @@
                 
                     <section class="normal" id="section-">
                     
-                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/haxenode/example.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="node-js-example">Node.js example</h1>
-<h3 id="node-js">Node.js</h3>
-<pre><code>// example.js
-
-var http = require(&apos;http&apos;);
-var server = http.createServer(
-      function (req, res) {
-        res.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
-            res.end(&apos;Hello World\\n&apos;);
-           }
-     )
-
-server.listen(1337, &quot;127.0.0.1&quot;);
-console.log(&apos;Server running at http://127.0.0.1:1337/&apos;);
-</code></pre><h3 id="run">run</h3>
-<p>in <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
-Alternative names for the terminal:  ">terminal</a></p>
-<pre><code>node example.js
-# Server running at http://127.0.0.1:1337/
-</code></pre><h1 id="haxe-example">Haxe example</h1>
-<h3 id="haxe-node">haxe node</h3>
-<pre><code>// Haxenode.hx
-
-package ;
+                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/04haxelow/example.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="example">Example</h1>
+<p>Write to a simple json database...
+Done in Haxe</p>
+<h2 id="how-to-start">How to start</h2>
+<p>Create a folder named <strong><a href="../GLOSSARY.html#foobar" class="glossary-term" title="The terms foobar, fubar, or foo, bar, baz and qux (alternatively, quux) and sometimes norf and many others are sometimes used as placeholder names (also referred to as metasyntactic variables) in computer programming or computer-related documentation.">foobar</a></strong> (please use a better name; any name will do) and create folders <strong>bin</strong> and <strong>src</strong>.
+See example below:</p>
+<pre><code>+ foobar
+    + bin
+    + src
+        - Main.hx
+    - javascript.hxml
+</code></pre><h2 id="install">Install</h2>
+<p>check out <a href="installation.html">the installation</a>.</p>
+<h2 id="the-main-hx">The Main.hx</h2>
+<p>Open your favorite editor, copy/paste the code and save it in the <code>src</code> folder. </p>
+<pre><code>package ;
 
 import js.Node;
-import js.node.Http;
-import js.node.http.ServerResponse;
 
+/**
+ * @author Matthijs Kamstra aka [mck]
+ */
 class Main
 {
-    static public function main()
-    {        
-        var server = Http.createServer(function (req:HttpServerReq, res:ServerResponse)
-        {
-            res.setHeader(&quot;Content-Type&quot;,&quot;text/plain&quot;);
-            res.writeHead(200);
-            res.end(&apos;Hello World\\n&apos;);
-        });
-        server.listen(1337,&quot;localhost&quot;);
+    function new()
+    {
+        trace(&quot;Node.js Haxelow Example&quot;);
 
-        trace( &apos;Server running at http://127.0.0.1:1337/&apos; );
+        // Create the database
+        var db = new HaxeLow(&apos;db.json&apos;);
+
+        // Get a collection of a class
+        var persons = db.col(Person);
+
+        // persons is now an Array&lt;Person&gt;
+        // that can be manipulated as you like
+        persons.push(new Person(&quot;Test&quot;, 50));
+
+        // Save all collections to disk.
+        // This is the only way to save, no automatic saving
+        // takes place.
+        db.save();
+    }
+
+    static public function main()
+    {
+        var main = new Main();
     }
 }
-</code></pre><h3 id="compile-run">compile &amp; run</h3>
-<p>in <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
-Alternative names for the terminal:  ">terminal</a></p>
-<pre><code>haxe -lib nodejs -js haxenode.js -main Haxenode
-node haxenode.js
-# Server running at http://127.0.0.1:1337/
-</code></pre>
+
+class Person {
+    public function new(name, age) {
+        this.name = name; 
+        this.age = age;
+    }
+
+    public var name : String;
+    public var age : Int;
+}
+</code></pre><h2 id="the-haxe-build-file-javascript-hxml">The Haxe build file, javascript.<a href="../GLOSSARY.html#hxml" class="glossary-term" title="Haxe build file">hxml</a></h2>
+<p>Copy and past the following lines in a document named <code>javascript.hxml</code>
+This is the short version, you want to chech out the full version open this <a href="code/javascript.hxml">file</a>;</p>
+<pre><code># // javascript.hxml
+-lib js-kit
+-lib haxelow
+-cp src
+-main Main
+-js bin/example.js
+-cmd node bin/example.js
+</code></pre><h2 id="build-js-with-haxe-and-start-node">Build js with Haxe and start Node</h2>
+<p>To finish and see what we have, build the file and see the result</p>
+<ol>
+<li>Open your <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a></li>
+<li><code>cd</code> to the correct folder where you have saved the <code>javascript.hxml</code> </li>
+<li>type <code>haxe javascript.hxml</code></li>
+<li>press enter</li>
+</ol>
+
                     
                     </section>
                 
@@ -881,10 +909,10 @@ node haxenode.js
         </div>
 
         
-        <a href="../haxenode/installation.html" class="navigation navigation-prev " aria-label="Previous page: Installation"><i class="fa fa-angle-left"></i></a>
+        <a href="../04haxelow/installation.html" class="navigation navigation-prev " aria-label="Previous page: Installation"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../haxenode/resource.html" class="navigation navigation-next " aria-label="Next page: Resources"><i class="fa fa-angle-right"></i></a>
+        <a href="../09slackbot/about.html" class="navigation navigation-next " aria-label="Next page: Example Slack bot"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
