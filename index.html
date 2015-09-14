@@ -38,7 +38,7 @@
     <body>
         
         
-    <div class="book" data-level="0" data-basepath="." data-revision="Sun Sep 13 2015 16:18:45 GMT+0200 (CEST)">
+    <div class="book" data-level="0" data-basepath="." data-revision="Mon Sep 14 2015 21:37:04 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -842,7 +842,8 @@ How to setup your project, install externs and how to work with them. This proba
 <li>Small developers teams working on big projects  </li>
 </ul>
 <h2 id="documentation-goals">Documentation goals</h2>
-<p>I wanted to make contributing to this documentation as easy as possible.<br>That&apos;s why I use Markdown; developers use it, but is really just plane English so <strong>everybody</strong> can write documentation!<br>And this documentation hosted on Github, developers favorite place to store code.<br>Even if you are not a developer and/or don&apos;t want to clone everything, you still can modify the files on the website (you need account to login in and change the <code>.md</code> files).</p>
+<p>I wanted to make contributing to this documentation as easy as possible.<br>That&apos;s why I use Markdown; developers use it, but is really just plane English so <strong>everybody</strong> can write documentation!<br>And this documentation hosted on Github, developers favorite place to store code.<br>Even if you are not a developer and/or don&apos;t want to clone everything, you still can modify the files on the website (you need account to login in and change the <code>.md</code> files).
+And as a final resort, you can leave your comments/suggestions/etc at the bottom of the page via Disqus.</p>
 <h2 id="open-sourcing-the-documentation">Open-sourcing the documentation</h2>
 <p>I thought I was the first to try to write documentation this way, but other beat me.<br>Although my idea was formed by writing a book in Markdown (Gitbook, but there are others).
 Writing documentation is very similar to writing a book.</p>
@@ -881,9 +882,13 @@ Writing documentation is very similar to writing a book.</p>
     <script src="gitbook/plugins/gitbook-plugin-edit-link/plugin.js"></script>
     
 
+    
+    <script src="gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
+    
+
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"edit-link":{"base":"https://github.com/MatthijsKamstra/haxenode/blob/master/","label":""}};
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"edit-link":{"base":"https://github.com/MatthijsKamstra/haxenode/blob/master/","label":""},"disqus":{"shortName":"haxeandnodejs"}};
     gitbook.start(config);
 });
 </script>
