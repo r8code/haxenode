@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="2.6" data-basepath=".." data-revision="Mon Sep 14 2015 21:37:04 GMT+0200 (CEST)">
+    <div class="book" data-level="2.6" data-basepath=".." data-revision="Mon Sep 21 2015 10:38:50 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -151,9 +151,17 @@
             
         </li>
     
-        <li class="chapter " data-level="2" >
+        <li class="chapter " data-level="2" data-path="haxenode/about.html">
             
-            <span><b>2.</b> Haxe and Node.js</span>
+                
+                    <a href="../haxenode/about.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Haxe and Node.js
+                    </a>
             
             
             <ul class="articles">
@@ -822,7 +830,7 @@
                     <section class="normal" id="section-">
                     
                         <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/haxenode/resource.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="resources">Resources</h1>
-<p>Extra info about Haxe, Node.js <strong>and</strong> the combination from the two.</p>
+<p>Extra information about Haxe, Node.js <strong>and</strong> the combination from the two.</p>
 <h3 id="haxe-resources">Haxe resources</h3>
 <ul>
 <li><a href="http://haxe.org" target="_blank">Haxe.org</a> </li>
@@ -845,10 +853,21 @@
 <li><a href="http://www.sublimetext.com/" target="_blank">http://www.sublimetext.com/</a></li>
 <li><a href="http://haxe.org/com/ide" target="_blank">Other IDE/Editors</a> </li>
 </ul>
+<h3 id="haxe-externs-npm-types-for-haxe">Haxe externs (NPM types for Haxe)</h3>
+<p><a href="https://github.com/clemos/haxe-js-kit" target="_blank">https://github.com/clemos/haxe-js-kit</a></p>
+<pre><code>haxelib git js-kit https://github.com/clemos/haxe-js-kit.git haxelib
+</code></pre><p><a href="https://github.com/abedev/npm" target="_blank">https://github.com/abedev/npm</a>   </p>
+<pre><code>haxelib git npm https://github.com/abedev/npm
+</code></pre><p>Documentation can be found <a href="https://rawgit.com/abedev/npm/master/docs/index.html" target="_blank">here</a> </p>
+<h3 id="honorable-mention">Honorable mention</h3>
+<p>I am not sure about how good these externs are. They have been converted from typescript to hx.</p>
+<blockquote>
+<p>DefinitelyTyped repository converted with ts2hx</p>
+</blockquote>
+<p>But even they are not working a 100%, it&apos;s a really good place to start from.
+And it&apos;s <strong>a lot of externs</strong></p>
 <ul>
-<li><a href="https://github.com/abedev/npm" target="_blank">https://github.com/abedev/npm</a>
-NPM types for Haxe<pre><code>haxelib git npm https://github.com/abedev/npm
-</code></pre>Documentation can be found <a href="https://rawgit.com/abedev/npm/master/docs/index.html" target="_blank">here</a> </li>
+<li><a href="https://github.com/francescoagati/DefinitelyTyped.hx" target="_blank">https://github.com/francescoagati/DefinitelyTyped.hx</a></li>
 </ul>
 
                     
@@ -879,14 +898,18 @@ NPM types for Haxe<pre><code>haxelib git npm https://github.com/abedev/npm
     <script src="../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
     
 
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"edit-link":{"base":"https://github.com/MatthijsKamstra/haxenode/blob/master/","label":""},"disqus":{"shortName":"haxeandnodejs"}};
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"edit-link":{"base":"https://github.com/MatthijsKamstra/haxenode/blob/master/","label":""},"disqus":{"shortName":"haxeandnodejs"},"ga":{"token":"UA-67866831-2","configuration":"auto"}};
     gitbook.start(config);
 });
 </script>
 
-        
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-67866831-2', 'auto');ga('send', 'pageview');</script>
     </body>
     
 </html>
