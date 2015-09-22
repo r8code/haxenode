@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Download | Haxe and Node.js</title>
+        <title>Example Internediate | Haxe and Node.js</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -29,10 +29,10 @@
         
     
     
-    <link rel="next" href="../haxenode/installation.html" />
+    <link rel="next" href="../05website/exampleAdvanced.html" />
     
     
-    <link rel="prev" href="../haxenode/why.html" />
+    <link rel="prev" href="../05website/exampleBasic.html" />
     
 
         
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="2.3" data-basepath=".." data-revision="Wed Sep 23 2015 00:05:51 GMT+0200 (CEST)">
+    <div class="book" data-level="8.3" data-basepath=".." data-revision="Wed Sep 23 2015 00:05:51 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -197,7 +197,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.3" data-path="haxenode/download.html">
+        <li class="chapter " data-level="2.3" data-path="haxenode/download.html">
             
                 
                     <a href="../haxenode/download.html">
@@ -563,7 +563,7 @@
             
         </li>
     
-        <li class="chapter " data-level="8.3" data-path="05website/exampleIntermediate.html">
+        <li class="chapter active" data-level="8.3" data-path="05website/exampleIntermediate.html">
             
                 
                     <a href="../05website/exampleIntermediate.html">
@@ -961,20 +961,99 @@
                 
                     <section class="normal" id="section-">
                     
-                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/haxenode/download.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="install-haxe-and-node-js">Install Haxe and Node.js</h1>
-<p>Current versions:  </p>
+                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/05website/exampleIntermediate.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="example-intermediate-website">Example intermediate website</h1>
+<p>This example is probably a collection of the next tutorials:</p>
 <ul>
-<li><strong>Haxe</strong> v3.2.0</li>
-<li><strong>Node.js</strong> v0.12.7</li>
+<li><a href="https://www.codementor.io/nodejs/tutorial/build-google-tv-raspberrypi-nodejs-socket-io" target="_blank">https://www.codementor.io/nodejs/tutorial/build-google-tv-raspberrypi-nodejs-socket-io</a></li>
+<li><a href="https://scotch.io/tutorials/use-expressjs-to-get-url-and-post-parameters" target="_blank">https://scotch.io/tutorials/use-expressjs-to-get-url-and-post-parameters</a></li>
 </ul>
-<h2 id="download-haxe">Download Haxe</h2>
-<ul>
-<li>Get your version here: <a href="http://haxe.org/download/" target="_blank">http://haxe.org/download/</a></li>
-</ul>
-<h2 id="download-node-js">Download Node.js</h2>
-<ul>
-<li>Get your version here: <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></li>
-</ul>
+<h2 id="how-to-start">How to start</h2>
+<p>Create a folder named <strong><a href="../GLOSSARY.html#foobar" class="glossary-term" title="The terms foobar, fubar, or foo, bar, baz and qux (alternatively, quux) and sometimes norf and many others are sometimes used as placeholder names (also referred to as metasyntactic variables) in computer programming or computer-related documentation.">foobar</a></strong> (please use a better name; any name will do) and create folders <strong>bin</strong> and <strong>src</strong>.
+See example below:</p>
+<pre><code>+ foobar
+    + bin
+        + public
+            + css
+            + fonts
+            + images
+            + js
+            - favicon.ico
+            - index_advanced.html
+            - index_intermediate.html
+            - remote_intermediate.html
+    + src
+        - MainIntermediate.hx
+    - javascript.hxml
+</code></pre><h2 id="install">Install</h2>
+<p>Check out <a href="installation.html">the installation</a>.</p>
+<h2 id="the-mainintermediate-hx">The MainIntermediate.hx</h2>
+<p>Open your favorite editor, copy/paste the code and save it in the <code>src</code> folder. </p>
+<pre><code>package ;
+import js.Node;
+import js.node.Http;
+import js.node.Path;
+import js.npm.Express;
+import js.npm.express.*;
+class MainIntermediate
+{
+    function new()
+    {
+        var app : Express   = new Express();
+        var server : Dynamic = Http.createServer(app);
+
+        app.set(&apos;port&apos;, 3000);
+        app.use(new Favicon(Node.__dirname + &apos;/public/favicon.ico&apos;));
+        // there is no Logger class in js-kit, so I added it in this source folder (js/npm/express/Logger.hx)
+        app.use(new Logger(&apos;dev&apos;)); 
+        app.use(BodyParser.urlencoded());
+        // app.use(new MethodOverride()); // can&apos;t find it in js-kit AND don&apos;t know what it does...
+        app.use(new Static(Path.join(Node.__dirname, &apos;public&apos;)));
+
+        // Routes
+        // http://localhost:3000
+        app.get(&apos;/&apos;, function (req, res) {
+            res.sendfile(Node.__dirname + &apos;/public/index_intermediate.html&apos;);
+        });
+
+        // http://localhost:3000/remote
+        app.get(&apos;/remote&apos;, function (req, res) {
+            res.sendfile(Node.__dirname + &apos;/public/remote_intermediate.html&apos;);
+        });
+
+        // http://localhost:3000/nope
+        app.use(function(req, res, next) {
+            res.status(404).send(&apos;404&apos;);
+        });
+
+        server.listen(app.get(&apos;port&apos;), function(){
+            trace(&apos;Express server listening on port &apos; + app.get(&apos;port&apos;));
+        });
+    }
+    static public function main()
+    {
+        var main = new MainIntermediate();
+    }
+}}
+</code></pre><h2 id="the-haxe-build-file-javascript-hxml">The Haxe build file, javascript.<a href="../GLOSSARY.html#hxml" class="glossary-term" title="Haxe build file">hxml</a></h2>
+<p>Copy and past the following lines in a document named <code>javascript.hxml</code>
+This is the short version, you want to chech out the full version open this <a href="code/javascript.hxml">file</a>;</p>
+<pre><code># // javascript.hxml
+-lib js-kit
+-cp src
+-main MainIntermediate
+-js bin/example.js
+-cmd cd bin
+-cmd node example.js
+</code></pre><h2 id="build-js-with-haxe-and-start-node">Build js with Haxe and start Node</h2>
+<p>To finish and see what we have, build the file and see the result</p>
+<ol>
+<li>Open your <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a></li>
+<li><code>cd</code> to the correct folder where you have saved the <code>javascript.hxml</code> </li>
+<li>type <code>haxe javascript.hxml</code></li>
+<li>press enter</li>
+</ol>
+<hr>
 
                     
                     </section>
@@ -985,10 +1064,10 @@
         </div>
 
         
-        <a href="../haxenode/why.html" class="navigation navigation-prev " aria-label="Previous page: Why Haxe?"><i class="fa fa-angle-left"></i></a>
+        <a href="../05website/exampleBasic.html" class="navigation navigation-prev " aria-label="Previous page: Example Basic"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../haxenode/installation.html" class="navigation navigation-next " aria-label="Next page: Installation"><i class="fa fa-angle-right"></i></a>
+        <a href="../05website/exampleAdvanced.html" class="navigation navigation-next " aria-label="Next page: Example Advanced"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
