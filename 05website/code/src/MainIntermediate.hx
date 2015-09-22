@@ -10,15 +10,15 @@ import js.npm.express.*;
 /**
  * @author Matthijs Kamstra aka [mck]
  */
-class Main
+class MainIntermediate
 {
 
 	function new()
 	{
-		trace("Express website: open browser at http://localhost:3000");
-		trace("stop node : CTRL + c");
+		trace("Express website (Intermediate): open browser at http://localhost:3000");
+		trace("Stop node.js : CTRL + c");
 
-		// source: http://expressjs.com/starter/basic-routing.html
+		// source: https://www.codementor.io/nodejs/tutorial/build-google-tv-raspberrypi-nodejs-socket-io
 
 		var app : Express   = new Express();
 		var server : Dynamic = Http.createServer(app);
@@ -26,20 +26,24 @@ class Main
 		// all environments
 		app.set('port', 3000);
 		app.use(new Favicon(Node.__dirname + '/public/favicon.ico'));
-		app.use(new Morgan('dev'));
+		// there is no Logger class in js-kit, so I added it in this source folder (js/npm/express/Logger.hx)
+		app.use(new Logger('dev')); 
 		app.use(BodyParser.urlencoded());
-		// app.use(new MethodOverride());
+		// app.use(new MethodOverride()); // can't find it in js-kit AND don't know what it does...
 		app.use(new Static(Path.join(Node.__dirname, 'public')));
 
-		//Routes
+		// Routes
+		// http://localhost:3000
 		app.get('/', function (req, res) {
-			res.sendfile(Node.__dirname + '/public/index.html');
+			res.sendfile(Node.__dirname + '/public/index_intermediate.html');
 		});
 
+		// http://localhost:3000/remote
 		app.get('/remote', function (req, res) {
-			res.sendfile(Node.__dirname + '/public/remote.html');
+			res.sendfile(Node.__dirname + '/public/remote_intermediate.html');
 		});
 
+		// http://localhost:3000/nope
 		app.use(function(req, res, next) {
 			res.status(404).send('404');
 		});
@@ -53,6 +57,6 @@ class Main
 
 	static public function main()
 	{
-		var main = new Main();
+		var main = new MainIntermediate();
 	}
 }
