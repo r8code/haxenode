@@ -26,8 +26,7 @@
 -dce full
 
 # This is very cool, but not necessary for this project, you can create a package.json with the correct depencicies (https://github.com/clemos/haxe-js-kit#exporting-your-project-dependencies)
---macro npm.Package.export("package.json")
+# --macro npm.Package.export("package.json")
 
 # Use terminal command to start Node.js!
--cmd cd bin
--cmd node example.js
+-cmd node bin/example.js
