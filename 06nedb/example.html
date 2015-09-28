@@ -29,7 +29,7 @@
         
     
     
-    <link rel="next" href="../09slackbot/about.html" />
+    <link rel="next" href="../06nedb/example2.html" />
     
     
     <link rel="prev" href="../06nedb/installation.html" />
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="9.2" data-basepath=".." data-revision="Mon Sep 28 2015 23:30:17 GMT+0200 (CEST)">
+    <div class="book" data-level="9.2" data-basepath=".." data-revision="Mon Sep 28 2015 23:50:33 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -644,6 +644,21 @@
             
         </li>
     
+        <li class="chapter " data-level="9.3" data-path="06nedb/example2.html">
+            
+                
+                    <a href="../06nedb/example2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.3.</b>
+                        
+                        Example 2
+                    </a>
+            
+            
+        </li>
+    
 
             </ul>
             
@@ -962,14 +977,17 @@
                     <section class="normal" id="section-">
                     
                         <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/06nedb/example.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="example-nedb">Example NeDB</h1>
+<p>What is NeDB (Node embedded database)?</p>
 <blockquote>
-<p>Embedded persistent database for Node.js, written in Javascript, with no dependency (except npm modules), which can be used with a simple require statement. The API is a subset of MongoDB&apos;s. You can use it as a persistent or an in-memory only datastore, and it can also be used in all recent browsers (Chrome, Firefox, Safari, IE9+).</p>
+<p>Embedded persistent database for Node.js, written in Javascript, with no dependency (except NPM modules), which can be used with a simple require statement. The API is a subset of MongoDB&apos;s. You can use it as a persistent or an in-memory only datastore, and it can also be used in all recent browsers (Chrome, Firefox, Safari, IE9+).</p>
 </blockquote>
+<p>This example is a combination of tutorials/examples below:</p>
 <ul>
 <li><a href="https://ehret.me/a-desktop-web-app-with-node-webkit-database-with-nedb/" target="_blank">https://ehret.me/a-desktop-web-app-with-node-webkit-database-with-nedb/</a></li>
 <li><a href="https://github.com/louischatriot/nedb#creatingloading-a-database" target="_blank">https://github.com/louischatriot/nedb#creatingloading-a-database</a></li>
 </ul>
-<p>Js-kit doesn&apos;t have the externs for NeDB, so I added it <a href="code/src/js/npm/NeDB.hx">here</a>;</p>
+<p>Although js-kit is awesome, it doesn&apos;t have externs for NeDB...
+So I added it <a href="code/src/js/npm/NeDB.hx">here</a>.</p>
 <h2 id="how-to-start">How to start</h2>
 <p>Create a folder named <strong><a href="../GLOSSARY.html#foobar" class="glossary-term" title="The terms foobar, fubar, or foo, bar, baz and qux (alternatively, quux) and sometimes norf and many others are sometimes used as placeholder names (also referred to as metasyntactic variables) in computer programming or computer-related documentation.">foobar</a></strong> (please use a better name; any name will do) and create folders <strong>bin</strong> and <strong>src</strong>.
 See example below:</p>
@@ -982,14 +1000,14 @@ See example below:</p>
         - Main.hx
     - javascript.hxml
 </code></pre><h2 id="install">Install</h2>
-<p>check out <a href="installation.html">the installation</a>.</p>
-<h2 id="the-main-hx">The Main.hx</h2>
+<p>Check out <a href="installation.html">the installation</a>.</p>
+<h2 id="the-mainbasic-hx">The MainBasic.hx</h2>
 <p>Open your favorite editor, copy/paste the code and save it in the <code>src</code> folder. </p>
 <pre><code>package ;
 import js.Node;
 import js.node.Path;
 import js.npm.NeDB;
-class Main
+class MainBasic
 {
     function new()
     {
@@ -1001,7 +1019,7 @@ class Main
             today: Date.now(), 
             nedbIsAwesome: true,
             notthere: null,
-            // notToBeSaved: undefined,  // Will not be saved (Doesn&apos;t even work in Haxe: src/Main.hx:29: characters 17-26 : Unknown identifier : undefined)
+            // notToBeSaved: undefined,  // Will not be saved (Doesn&apos;t even work in Haxe: src/MainBasic.hx:29: characters 17-26 : Unknown identifier : undefined)
             fruits: [ &apos;apple&apos;, &apos;orange&apos;, &apos;pear&apos; ],
             infos: { name: &apos;nedb&apos; }
         };
@@ -1015,7 +1033,7 @@ class Main
 
     static public function main()
     {
-        var main = new Main();
+        var main = new MainBasic();
     }
 }
 </code></pre><h2 id="the-haxe-build-file-javascript-hxml">The Haxe build file, javascript.<a href="../GLOSSARY.html#hxml" class="glossary-term" title="Haxe build file">hxml</a></h2>
@@ -1051,7 +1069,7 @@ Alternative names for the terminal:  ">terminal</a></li>
         <a href="../06nedb/installation.html" class="navigation navigation-prev " aria-label="Previous page: Installation"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../09slackbot/about.html" class="navigation navigation-next " aria-label="Next page: Example Slack bot"><i class="fa fa-angle-right"></i></a>
+        <a href="../06nedb/example2.html" class="navigation navigation-next " aria-label="Next page: Example 2"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

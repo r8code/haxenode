@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Example | Haxe and Node.js</title>
+        <title>Example 2 | Haxe and Node.js</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -29,10 +29,10 @@
         
     
     
-    <link rel="next" href="../05website/about.html" />
+    <link rel="next" href="../09slackbot/about.html" />
     
     
-    <link rel="prev" href="../04haxelow/installation.html" />
+    <link rel="prev" href="../06nedb/example.html" />
     
 
         
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="7.2" data-basepath=".." data-revision="Mon Sep 28 2015 23:50:33 GMT+0200 (CEST)">
+    <div class="book" data-level="9.3" data-basepath=".." data-revision="Mon Sep 28 2015 23:50:33 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -497,7 +497,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="7.2" data-path="04haxelow/example.html">
+        <li class="chapter " data-level="7.2" data-path="04haxelow/example.html">
             
                 
                     <a href="../04haxelow/example.html">
@@ -644,7 +644,7 @@
             
         </li>
     
-        <li class="chapter " data-level="9.3" data-path="06nedb/example2.html">
+        <li class="chapter active" data-level="9.3" data-path="06nedb/example2.html">
             
                 
                     <a href="../06nedb/example2.html">
@@ -976,48 +976,60 @@
                 
                     <section class="normal" id="section-">
                     
-                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/04haxelow/example.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="example">Example</h1>
-<p>Write to a simple json database...
-Done in Haxe</p>
+                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/06nedb/example2.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="example-nedb">Example NeDB</h1>
+<p>What is NeDB (Node embedded database)?</p>
+<blockquote>
+<p>Embedded persistent database for Node.js, written in Javascript, with no dependency (except NPM modules), which can be used with a simple require statement. The API is a subset of MongoDB&apos;s. You can use it as a persistent or an in-memory only datastore, and it can also be used in all recent browsers (Chrome, Firefox, Safari, IE9+).</p>
+</blockquote>
+<p>This example is a combination of tutorials/examples below:</p>
+<ul>
+<li><a href="https://github.com/louischatriot/nedb#finding-documents" target="_blank">https://github.com/louischatriot/nedb#finding-documents</a></li>
+</ul>
+<p>Although js-kit is awesome, it doesn&apos;t have externs for NeDB...
+So I added it <a href="code/src/js/npm/NeDB.hx">here</a>.</p>
+<p>check out the first <a href="example.html">example</a></p>
 <h2 id="how-to-start">How to start</h2>
 <p>Create a folder named <strong><a href="../GLOSSARY.html#foobar" class="glossary-term" title="The terms foobar, fubar, or foo, bar, baz and qux (alternatively, quux) and sometimes norf and many others are sometimes used as placeholder names (also referred to as metasyntactic variables) in computer programming or computer-related documentation.">foobar</a></strong> (please use a better name; any name will do) and create folders <strong>bin</strong> and <strong>src</strong>.
 See example below:</p>
 <pre><code>+ foobar
     + bin
     + src
+        + js
+            + npm
+                - NeDB.hx
         - Main.hx
     - javascript.hxml
 </code></pre><h2 id="install">Install</h2>
-<p>check out <a href="installation.html">the installation</a>.</p>
+<p>Check out <a href="installation.html">the installation</a>.</p>
 <h2 id="the-main-hx">The Main.hx</h2>
+<p>It&apos;s really a long list, so not everything is written in this example, check out the <a href="code/src/Main.hx">source Main.hx</a></p>
 <p>Open your favorite editor, copy/paste the code and save it in the <code>src</code> folder. </p>
 <pre><code>package ;
-
 import js.Node;
-
-/**
- * @author Matthijs Kamstra aka [mck]
- */
+import js.node.Path;
+import js.npm.NeDB;
 class Main
 {
     function new()
     {
-        trace(&quot;Node.js Haxelow Example&quot;);
+        // https://github.com/louischatriot/nedb#finding-documents
+        var options : DataStoreOptions = { filename : Path.join(Node.__dirname, &apos;/intermediate.db&apos;), autoload : true};
+        var db = new NeDB(options);
 
-        // Create the database
-        var db = new HaxeLow(&apos;db.json&apos;);
+        db.insert( { _id: &apos;id1&apos;, planet: &apos;Mars&apos;, system: &apos;solar&apos;, inhabited: false, satellites: [&apos;Phobos&apos;, &apos;Deimos&apos;] } );
+        db.insert( { _id: &apos;id2&apos;, planet: &apos;Earth&apos;, system: &apos;solar&apos;, inhabited: true, humans: { genders: 2, eyes: true } } );
+        db.insert( { _id: &apos;id3&apos;, planet: &apos;Jupiter&apos;, system: &apos;solar&apos;, inhabited: false } );
+        db.insert( { _id: &apos;id4&apos;, planet: &apos;Omicron Persei 8&apos;, system: &apos;futurama&apos;, inhabited: true, humans: { genders: 7 } } );
+        db.insert( { _id: &apos;id5&apos;, completeData: { planets: [ { name: &apos;Earth&apos;, number: 3 }, { name: &apos;Mars&apos;, number: 2 }, { name: &apos;Pluton&apos;, number: 9 } ] } } );
 
-        // Get a collection of a class
-        var persons = db.col(Person);
+        // Finding all planets in the solar system
+        db.find({ system: &apos;solar&apos; }, function (err, docs) {
+            // docs is an array containing documents Mars, Earth, Jupiter
+            // If no document is found, docs is equal to []
+            trace (&apos;{ system: \&apos;solar\&apos; } :: ${docs.length}&apos;);
+        });
 
-        // persons is now an Array&lt;Person&gt;
-        // that can be manipulated as you like
-        persons.push(new Person(&quot;Test&quot;, 50));
-
-        // Save all collections to disk.
-        // This is the only way to save, no automatic saving
-        // takes place.
-        db.save();
+        // this example works, but check out the source file  of this class for more examples
     }
 
     static public function main()
@@ -1025,26 +1037,16 @@ class Main
         var main = new Main();
     }
 }
-
-class Person {
-    public function new(name, age) {
-        this.name = name; 
-        this.age = age;
-    }
-
-    public var name : String;
-    public var age : Int;
-}
 </code></pre><h2 id="the-haxe-build-file-javascript-hxml">The Haxe build file, javascript.<a href="../GLOSSARY.html#hxml" class="glossary-term" title="Haxe build file">hxml</a></h2>
 <p>Copy and past the following lines in a document named <code>javascript.hxml</code>
 This is the short version, you want to chech out the full version open this <a href="code/javascript.hxml">file</a>;</p>
 <pre><code># // javascript.hxml
 -lib js-kit
--lib haxelow
 -cp src
 -main Main
 -js bin/example.js
--cmd node bin/example.js
+-cmd cd bin
+-cmd node example.js
 </code></pre><h2 id="build-js-with-haxe-and-start-node">Build js with Haxe and start Node</h2>
 <p>To finish and see what we have, build the file and see the result</p>
 <ol>
@@ -1054,6 +1056,7 @@ Alternative names for the terminal:  ">terminal</a></li>
 <li>type <code>haxe javascript.hxml</code></li>
 <li>press enter</li>
 </ol>
+<hr>
 
                     
                     </section>
@@ -1064,10 +1067,10 @@ Alternative names for the terminal:  ">terminal</a></li>
         </div>
 
         
-        <a href="../04haxelow/installation.html" class="navigation navigation-prev " aria-label="Previous page: Installation"><i class="fa fa-angle-left"></i></a>
+        <a href="../06nedb/example.html" class="navigation navigation-prev " aria-label="Previous page: Example"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../05website/about.html" class="navigation navigation-next " aria-label="Next page: Example Website"><i class="fa fa-angle-right"></i></a>
+        <a href="../09slackbot/about.html" class="navigation navigation-next " aria-label="Next page: Example Slack bot"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
