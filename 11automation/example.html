@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Haxe basics | Haxe and Node.js</title>
+        <title>Example | Haxe and Node.js</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -29,10 +29,10 @@
         
     
     
-    <link rel="next" href="../haxe/installation.html" />
+    <link rel="next" href="../follow.html" />
     
     
-    <link rel="prev" href="../index.html" />
+    <link rel="prev" href="../11automation/installation.html" />
     
 
         
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="1" data-basepath=".." data-revision="Wed Sep 30 2015 21:57:18 GMT+0200 (CEST)">
+    <div class="book" data-level="12.2" data-basepath=".." data-revision="Wed Sep 30 2015 21:57:18 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -70,7 +70,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1" data-path="haxe/about.html">
+        <li class="chapter " data-level="1" data-path="haxe/about.html">
             
                 
                     <a href="../haxe/about.html">
@@ -797,7 +797,7 @@
             
         </li>
     
-        <li class="chapter " data-level="12.2" data-path="11automation/example.html">
+        <li class="chapter active" data-level="12.2" data-path="11automation/example.html">
             
                 
                     <a href="../11automation/example.html">
@@ -1027,25 +1027,225 @@
                 
                     <section class="normal" id="section-">
                     
-                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/haxe/about.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="what-is-haxe">What is Haxe?</h1>
-<p><img src="../img/haxe_logo.png" alt="Haxe logo"></p>
-<p>Lets get the wikipedia description first:</p>
-<blockquote>
-<p>Haxe is an open source high-level multi-platform programming language and compiler that can produce applications and source code for many different platforms from a single code-base.</p>
-<p>Haxe includes a set of common functionality that is supported across all platforms, such as numeric data types, text, arrays, binary and some common file formats. Haxe also includes platform-specific API for Adobe Flash, C++, PHP and other languages.</p>
-<p>Code written in the Haxe language can be source-to-source compiled into ActionScript 3 code, JavaScript programs, Java, C#, C++ standalone applications, Python, PHP, Apache CGI, and Node.js server-side applications.</p>
-</blockquote>
-<p><em>From <a href="https://en.wikipedia.org/wiki/Haxe" target="_blank">wikipedia</a></em></p>
+                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/11automation/example.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="example">Example</h1>
+<p>We will use a simple example to illustrate the workings of automation.<br>And to do that we will use the first example we made: the <a href="../GLOSSARY.html#hello_world" class="glossary-term" title="A &quot;Hello, World!&quot; program is a computer program that outputs &quot;Hello, World!&quot; (or some variant thereof) on a display device.">hello world</a> in node.js.<br>Read more about &quot;<a href="../00helloworld/about.html">hello world</a>&quot;</p>
+<h2 id="how-to-start">How to start</h2>
+<p>Create a folder named <strong><a href="../GLOSSARY.html#foobar" class="glossary-term" title="The terms foobar, fubar, or foo, bar, baz and qux (alternatively, quux) and sometimes norf and many others are sometimes used as placeholder names (also referred to as metasyntactic variables) in computer programming or computer-related documentation.">foobar</a></strong> (please use a better name; any name will do) and create folders <strong>bin</strong> and <strong>src</strong>.
+See example below:</p>
+<pre><code>+ foobar
+    + bin
+    + src
+        - Main.hx
+    - GruntFile.js
+    - javascript.hxml
+    - package.json
+</code></pre><h2 id="install">Install</h2>
+<p>Check out <a href="installation.html">the installation</a>.</p>
+<h2 id="the-main-hx">The Main.hx</h2>
+<p>Open your favorite editor, copy/paste the code and save it in the <code>src</code> folder. </p>
+<pre><code>package ;
+
+import js.Node;
+import js.node.Http;
+import js.node.http.ServerResponse;
+
+/**
+ * @author Matthijs Kamstra aka [mck]
+ */
+class Main
+{
+    function new()
+    {
+        trace(&quot;Node.js Hello World Example&quot;);
+
+        Http.createServer(function (request:HttpServerReq, response:ServerResponse):Void {
+            response.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
+            response.end(&apos;Hello World\n&apos; + Date.now() );
+        }).listen(8080);
+
+        trace(&apos;Server started: &apos;);        
+        trace(&apos;open http://localhost:8080&apos;);        
+        trace(&apos;Close Node with CTRL + C&apos;);        
+    }
+
+    static public function main()
+    {
+        var main = new Main();
+    }
+}
+</code></pre><h2 id="the-haxe-build-file-javascript-hxml">The Haxe build file, javascript.<a href="../GLOSSARY.html#hxml" class="glossary-term" title="Haxe build file">hxml</a></h2>
+<p>Copy and past the following lines in a document named <code>javascript.hxml</code><br>This is the short version, you want to chech out the full version open this <a href="code/javascript.hxml">file</a>;</p>
+<pre><code># // javascript.hxml
+-lib js-kit
+-cp src
+-main Main
+-js bin/example.js
+# -cmd node bin/example.js // this part will be done by automation
+</code></pre><h2 id="automate-no-not-yet-but-getting-closer">Automate! (no not yet, but getting closer)</h2>
+<p>Normally you would have a &quot;how to build&quot; instruction for Haxe here.<br>But now we will use Grunt to build the <code>.hxml</code> file and let Grunt &quot;watch&quot; the files for changes.<br>If there are any changes, Grunt will rebuild.</p>
+<p>The same thing will be done with Nodemon.<br>Nodemon will restart Node, when the file changes.
+In our case it will only watch one file (example.js), but when it changes it will restart the server.</p>
+<p>To do this we need two extra files:</p>
+<ul>
+<li>package.json</li>
+<li>GruntFile.js</li>
+</ul>
+<h2 id="package-json">package.json</h2>
+<p>I think you only need the &quot;devDependencies&quot;, the rest is nice to add (and will stop node complaining about this file).</p>
+<pre><code>{
+    &quot;license&quot;: &quot;MIT&quot;,
+    &quot;description&quot;: &quot;Create a website with express&quot;,
+    &quot;author&quot;: &quot;Matthijs Kamstra aka [mck]&quot;,
+    &quot;private&quot;: true,
+    &quot;dependencies&quot;: {
+
+    },
+    &quot;devDependencies&quot;: {
+        &quot;grunt&quot;: &quot;~0.4.1&quot;,
+        &quot;grunt-contrib-watch&quot;: &quot;~0.5.3&quot;,
+        &quot;grunt-exec&quot; : &quot;~0.4.6&quot;,
+        &quot;grunt-nodemon&quot; : &quot;*&quot;
+    }
+}
+</code></pre><h2 id="gruntfile-js">GruntFile.js</h2>
+<p>I will not explain everything you see here, you should read about it on the <a href="http://gruntjs.com/getting-started" target="_blank">Grunt website</a>.
+But in short:</p>
+<ul>
+<li><code>grunt-exec</code> is a Grunt plugin for executing shell commands.</li>
+<li><code>grunt-contrib-watch</code> lets you watch for changes in files (in this case <code>.md</code> and <code>.hx</code>)</li>
+</ul>
+<pre><code>module.exports = function(grunt) {
+
+    // Project configuration.
+      grunt.initConfig({
+        pkg: grunt.file.readJSON(&apos;package.json&apos;),
+
+        exec: {
+            haxe: &apos;haxe javascript.hxml&apos;
+        },
+
+        watch: {
+            scripts: {
+                files: [&apos;**/*.md&apos;,&apos;**/*.hx&apos;],
+                tasks: [&apos;exec&apos;],
+                options: {
+                      livereload: true
+                },
+            },
+        }
+
+    });
+
+    grunt.loadNpmTasks(&apos;grunt-contrib-watch&apos;);
+    grunt.loadNpmTasks(&apos;grunt-exec&apos;);
+
+    grunt.registerTask(&apos;default&apos;, [&apos;exec&apos;]);
+
+};
+</code></pre><h2 id="automate-almost-there">Automate! (almost there)</h2>
+<p>Now we have the correct files, we need to update the node modules
+So open the correct folder with you <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a></p>
+<p>Something like:</p>
+<pre><code>cd path/to/this/example/
+</code></pre><hr>
+<p>Now we update the <code>node_modules</code> so we don&apos;t get error that way
+(this is documented in <code>package.json</code>)</p>
+<pre><code>npm install
+</code></pre><p>This will create a new folder with grunt folders in it:</p>
+<pre><code>+ node_modules
+    + grunt
+    + grunt-contrib-watch
+    + grunt-exec
+    + grunt-nodemon
+</code></pre><hr>
+<p>Start grunt watch so it will rebuild <code>javascript.hxml</code> as soon as file changes</p>
+<pre><code>grunt watch
+</code></pre><p>you will get this in you <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a>:</p>
+<pre><code>Running &quot;watch&quot; task
+Waiting...
+</code></pre><p>and if you change the Main.hx file (just save it again)</p>
+<pre><code>Running &quot;watch&quot; task
+Waiting...OK
+&gt;&gt; File &quot;src/Main.hx&quot; changed.
+
+Running &quot;exec:haxe&quot; (exec) task
+
+Done, without errors.
+Completed in 0.968s at Sep 28 2015 21:20:43 GMT+0200 (CEST) - Waiting...
+</code></pre><p>Cool huh!</p>
 <hr>
-<p>And the official description:</p>
-<blockquote>
-<p>Haxe consists of a high-level, open source programming language and a compiler. It allows compilation of programs, written using an ECMAScript-oriented syntax, to multiple target languages. Employing proper abstraction, it is possible to maintain a single code-base which compiles to multiple targets.</p>
-<p>Haxe is strongly typed but the typing system can be subverted where required. Utilizing type information, the Haxe type system can detect errors at compile-time which would only be noticeable at run-time in the target language. Furthermore, type information can be used by the target generators to generate optimized and robust code.</p>
-</blockquote>
-<p><em>From <a href="http://haxe.org/manual/introduction-what-is-haxe.html" target="_blank">haxe.org - manual</a></em></p>
+<p>So now Grunt will watch changes to the <code>.hx</code> and recompile the example.js file.<br>Now we need something to restart Node.</p>
+<p>We want Nodemon to watch only one file: example.js
+So we start Nodemon in the bin folder:</p>
+<p>(open a new <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a> window, because Grunt is using the other)</p>
+<pre><code>cd path/to/bin
+</code></pre><p>and start watching example.js with NodeMon</p>
+<pre><code>nodemon example.js
+</code></pre><p>And in will see in you <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a> (and it will show the date you start it):</p>
+<pre><code>28 Sep 21:27:43 - [nodemon] v1.7.0
+28 Sep 21:27:43 - [nodemon] to restart at any time, enter `rs`
+28 Sep 21:27:43 - [nodemon] watching: *.*
+28 Sep 21:27:43 - [nodemon] starting `node example.js`
+</code></pre><p>If you now change <code>Main.hx</code>:</p>
+<ul>
+<li>Grunt watch will see that it&apos;s changed and will recompile</li>
+<li>after recompiling, Nodemon will see that the file is changed and will restart Node</li>
+</ul>
+<p>and this will go on as long as you change the file </p>
 <hr>
-<h2 id="personal">Personal</h2>
-<p><a href="../GLOSSARY.html#fixme" class="glossary-term" title="This needs some more info, you could help me with that!">fixme</a></p>
+<p>To stop the <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a> process (nodemon and grunt watch)</p>
+<pre><code>Ctrl + c
+</code></pre><h3 id="automation-win">Automation WIN!</h3>
+<p>So this way I have automated a lot:</p>
+<p>First run:</p>
+<ul>
+<li>Open <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a></li>
+<li>type <code>haxe javascript.hxml</code></li>
+<li>enter</li>
+<li>open Browser <code>http://localhost:8080</code></li>
+</ul>
+<p>Updates:</p>
+<ul>
+<li>CMD + TAB &gt; <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">Terminal</a></li>
+<li>CTRL + c (stop node)</li>
+<li>Cursor + UP (select previous state <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a>)</li>
+<li>Enter</li>
+<li>CMD + TAB &gt; Browser</li>
+<li>CMD + R</li>
+<li>CMD + TAB &gt; Sublime Text</li>
+<li>change files</li>
+<li>repeat</li>
+</ul>
+<p>To</p>
+<p>First run:</p>
+<ul>
+<li>Open <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a></li>
+<li>type <code>grunt watch</code></li>
+<li>enter</li>
+<li>Open <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a></li>
+<li>type <code>nodemon example.js</code></li>
+<li>enter</li>
+<li>open Browser <code>http://localhost:8080</code></li>
+</ul>
+<p>Updates:</p>
+<ul>
+<li>CMD + TAB &gt; Browser</li>
+<li>CMD + R</li>
+<li>CMD + TAB &gt; Sublime Text</li>
+<li>change files</li>
+<li>repeat</li>
+</ul>
+<p>(with some effort you could even automate the reload of the browser)</p>
 <hr>
 
                     
@@ -1057,10 +1257,10 @@
         </div>
 
         
-        <a href="../index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
+        <a href="../11automation/installation.html" class="navigation navigation-prev " aria-label="Previous page: Installation"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../haxe/installation.html" class="navigation navigation-next " aria-label="Next page: Installation"><i class="fa fa-angle-right"></i></a>
+        <a href="../follow.html" class="navigation navigation-next " aria-label="Next page: Who to follow"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
