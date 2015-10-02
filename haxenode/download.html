@@ -29,10 +29,10 @@
         
     
     
-    <link rel="next" href="../haxenode/installation.html" />
+    <link rel="next" href="../haxenode/example.html" />
     
     
-    <link rel="prev" href="../haxenode/why.html" />
+    <link rel="prev" href="../haxenode/what.html" />
     
 
         
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="2.3" data-basepath=".." data-revision="Fri Oct 02 2015 13:37:12 GMT+0200 (CEST)">
+    <div class="book" data-level="2.4" data-basepath=".." data-revision="Fri Oct 02 2015 13:59:24 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -167,16 +167,16 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.1" data-path="haxenode/what.html">
+        <li class="chapter " data-level="2.1" data-path="haxenode/installation.html">
             
                 
-                    <a href="../haxenode/what.html">
+                    <a href="../haxenode/installation.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>2.1.</b>
                         
-                        What is it
+                        Installation
                     </a>
             
             
@@ -197,31 +197,31 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.3" data-path="haxenode/download.html">
+        <li class="chapter " data-level="2.3" data-path="haxenode/what.html">
+            
+                
+                    <a href="../haxenode/what.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        What is it
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.4" data-path="haxenode/download.html">
             
                 
                     <a href="../haxenode/download.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.3.</b>
-                        
-                        Download
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.4" data-path="haxenode/installation.html">
-            
-                
-                    <a href="../haxenode/installation.html">
-                
-                        <i class="fa fa-check"></i>
-                        
                             <b>2.4.</b>
                         
-                        Installation
+                        Download
                     </a>
             
             
@@ -1043,20 +1043,34 @@
                     <section class="normal" id="section-">
                     
                         <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/haxenode/download.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="install-haxe-and-node-js">Install Haxe and Node.js</h1>
-<p>Current versions:  </p>
+<p>Before you can use there are a couple of thing you need to do.</p>
+<p>Obviously you need to install Haxe. There are a <a href="../haxe/installation.html">couple of ways to do it</a>, but in this document I will only send you to the <a href="#haxe">official place</a>.</p>
+<p>Don&apos;t want to kick in some open doors, but before you can use Node.js ... you need to <a href="#node">install</a> that also.</p>
+<p>Last but not least, you need to install the <a href="#externs">Haxe Externs</a>. These are the &quot;translators&quot; from untyped node.js code to typed Haxe code. You only need to install the Node.js externs but get other fun stuff as wel. You will need them further on these documentation. </p>
+<p>Current versions are:  </p>
 <ul>
 <li><strong>Haxe</strong> v3.2.0</li>
 <li><strong>Node.js</strong> v0.12.7</li>
 </ul>
+<p>But if the version numbers changed, it only means I haven&apos;t updated this part of the document in some time :D</p>
+<p><a name="haxe"></a></p>
 <h2 id="download-haxe">Download Haxe</h2>
+<p><img src="../img/haxe_logo.png" alt=""></p>
 <ul>
 <li>Get your version here: <a href="http://haxe.org/download/" target="_blank">http://haxe.org/download/</a></li>
 </ul>
+<p><a name="node"></a></p>
 <h2 id="download-node-js">Download Node.js</h2>
+<p><img src="../img/nodejs_logo.png" alt=""></p>
 <ul>
 <li>Get your version here: <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></li>
 </ul>
-
+<p><a name="externs"></a></p>
+<h2 id="externs">Externs</h2>
+<p>For now you need to install externs via haxelib.<br>But when Haxe hits version 3.2.1 you don&apos;t have to (the node externs will be part of the install).
+So for now, I advice to install the Haxe Externs from js-kit.<br><strong>(install this after you have installed Haxe; you need haxelib to install js-kit this way)</strong></p>
+<pre><code>haxelib git js-kit https://github.com/clemos/haxe-js-kit.git haxelib
+</code></pre>
                     
                     </section>
                 
@@ -1066,10 +1080,10 @@
         </div>
 
         
-        <a href="../haxenode/why.html" class="navigation navigation-prev " aria-label="Previous page: Why Haxe?"><i class="fa fa-angle-left"></i></a>
+        <a href="../haxenode/what.html" class="navigation navigation-prev " aria-label="Previous page: What is it"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../haxenode/installation.html" class="navigation navigation-next " aria-label="Next page: Installation"><i class="fa fa-angle-right"></i></a>
+        <a href="../haxenode/example.html" class="navigation navigation-next " aria-label="Next page: Example"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
