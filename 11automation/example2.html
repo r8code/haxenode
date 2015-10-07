@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Example | Haxe and Node.js</title>
+        <title>Better Example | Haxe and Node.js</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -29,10 +29,10 @@
         
     
     
-    <link rel="next" href="../haxenode/resource.html" />
+    <link rel="next" href="../follow.html" />
     
     
-    <link rel="prev" href="../haxenode/download.html" />
+    <link rel="prev" href="../11automation/example.html" />
     
 
         
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="2.5" data-basepath=".." data-revision="Wed Oct 07 2015 23:26:53 GMT+0200 (CEST)">
+    <div class="book" data-level="12.3" data-basepath=".." data-revision="Wed Oct 07 2015 23:26:53 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -227,7 +227,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.5" data-path="haxenode/example.html">
+        <li class="chapter " data-level="2.5" data-path="haxenode/example.html">
             
                 
                     <a href="../haxenode/example.html">
@@ -812,7 +812,7 @@
             
         </li>
     
-        <li class="chapter " data-level="12.3" data-path="11automation/example2.html">
+        <li class="chapter active" data-level="12.3" data-path="11automation/example2.html">
             
                 
                     <a href="../11automation/example2.html">
@@ -1057,57 +1057,173 @@
                 
                     <section class="normal" id="section-">
                     
-                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/haxenode/example.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="node-js-example">Node.js example</h1>
-<h3 id="node-js">Node.js</h3>
-<pre><code>// example.js
-
-var http = require(&apos;http&apos;);
-var server = http.createServer(
-      function (req, res) {
-        res.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
-            res.end(&apos;Hello World\\n&apos;);
-           }
-     )
-
-server.listen(1337, &quot;127.0.0.1&quot;);
-console.log(&apos;Server running at http://127.0.0.1:1337/&apos;);
-</code></pre><h3 id="run">run</h3>
-<p>in <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
-Alternative names for the terminal:  ">terminal</a></p>
-<pre><code>node example.js
-# Server running at http://127.0.0.1:1337/
-</code></pre><h1 id="haxe-example">Haxe example</h1>
-<h3 id="haxe-node">haxe node</h3>
-<pre><code>// Haxenode.hx
-
-package ;
+                        <a id="edit-link" href="https://github.com/MatthijsKamstra/haxenode/blob/master/11automation/example2.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="example-two">Example two</h1>
+<p><img src="https://www.npmjs.com/static/images/npm-logo.svg" alt=""></p>
+<p>I love the Haxe community. This is a great example of how I hoped this documentation would work.<br>In the comments of my other <a href="example.html">automation example</a> I get a suggestion from <a href="https://disqus.com/home/discussion/haxeandnodejs/haxe_and_nodejs_91/#comment-2291149693" target="_blank">Clark Jones</a> I could improve by doing this:</p>
+<ul>
+<li>without Grunt</li>
+<li>but use NPM</li>
+<li>shorter / cleaner </li>
+<li>livereload (I couldn&apos;t get that to work)</li>
+<li>how to be more awesome!</li>
+</ul>
+<p>I was a little thin on time, so couldn&apos;t write/researched it at once... <a href="https://disqus.com/home/discussion/haxeandnodejs/haxe_and_nodejs_91/#comment-2292315372" target="_blank">So Clark documented it in the comments</a></p>
+<p><strong>I really did&apos;t know NPM could do that, but I happy I do know now!</strong></p>
+<p>We will use a simple example to illustrate the workings of automation.<br>And to do that we will use the first example we made: the <a href="../GLOSSARY.html#hello_world" class="glossary-term" title="A &quot;Hello, World!&quot; program is a computer program that outputs &quot;Hello, World!&quot; (or some variant thereof) on a display device.">hello world</a> in node.js.<br>Read more about &quot;<a href="../00helloworld/about.html">hello world</a>&quot;</p>
+<p>There are some little adjustments for livereload, but crucial to get that working.<br><strong>AND</strong> a conditional compilation flag added so when you remove <code>-debug</code> from the <code>.hmxl</code> file the livereload will also disappear from the html.</p>
+<p><em>Check out the <a href="https://github.com/MatthijsKamstra/haxenode/tree/master/11automation/code2" target="_blank">code folder</a></em></p>
+<h2 id="how-to-start">How to start</h2>
+<p>Create a folder named <strong><a href="../GLOSSARY.html#foobar" class="glossary-term" title="The terms foobar, fubar, or foo, bar, baz and qux (alternatively, quux) and sometimes norf and many others are sometimes used as placeholder names (also referred to as metasyntactic variables) in computer programming or computer-related documentation.">foobar</a></strong> (please use a better name; any name will do) and create folders <strong>bin</strong> and <strong>src</strong>.
+See example below:</p>
+<pre><code>+ foobar
+    + bin
+    + src
+        - Main.hx
+    - javascript.hxml
+    - package.json
+</code></pre><h2 id="install">Install</h2>
+<p>Check out <a href="installation2.md">the installation2</a>.</p>
+<h2 id="the-main-hx">The Main.hx</h2>
+<p>Open your favorite editor, copy/paste the code and save it in the <code>src</code> folder. </p>
+<pre><code>package ;
 
 import js.Node;
 import js.node.Http;
 import js.node.http.ServerResponse;
 
+/**
+ * @author Matthijs Kamstra aka [mck]
+ */
 class Main
 {
-    static public function main()
-    {        
-        var server = Http.createServer(function (req:HttpServerReq, res:ServerResponse)
-        {
-            res.setHeader(&quot;Content-Type&quot;,&quot;text/plain&quot;);
-            res.writeHead(200);
-            res.end(&apos;Hello World\\n&apos;);
-        });
-        server.listen(1337,&quot;localhost&quot;);
+    function new()
+    {
+        trace(&quot;Node.js Hello World Example&quot;);
 
-        trace( &apos;Server running at http://127.0.0.1:1337/&apos; );
+        Http.createServer(function (request:HttpServerReq, response:ServerResponse):Void {
+            response.writeHead(200, {&apos;Content-Type&apos;: &apos;text/html&apos;});
+
+            #if debug
+            response.write(&apos;&lt;script src=&quot;http://0.0.0.0:35729/livereload.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&apos;); 
+            #end
+
+            response.end(&apos;&lt;b&gt;Hello World&lt;/b&gt;&lt;br&gt;&apos; + Date.now() ); 
+        }).listen(8080);
+
+        trace(&apos;Server started: &apos;);
+        trace(&apos;open http://localhost:8080&apos;);
+        trace(&apos;Close Node with CTRL + C&apos;);        
+    }
+
+    static public function main()
+    {
+        var main = new Main();   
     }
 }
-</code></pre><h3 id="compile-run">compile &amp; run</h3>
-<p>in <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+</code></pre><h2 id="the-haxe-build-file-javascript-hxml">The Haxe build file, javascript.<a href="../GLOSSARY.html#hxml" class="glossary-term" title="Haxe build file">hxml</a></h2>
+<p>Copy and past the following lines in a document named <code>javascript.hxml</code><br>This is the short version, you want to check out the full version open this <a href="code2/javascript.hxml">file</a>;</p>
+<pre><code>-lib js-kit
+-cp src
+-main Main
+-js bin/example.js
+-D source-map-content
+-debug
+-dce full
+--macro npm.Package.export(&quot;package.json&quot;)
+</code></pre><h2 id="automate-no-not-yet-but-getting-closer">Automate! (no not yet, but getting closer)</h2>
+<p>Normally you would have a &quot;how to build&quot; instruction for Haxe here.<br>But now we will use NPM to build the <code>.hxml</code> file and let NPM &quot;watch&quot; the files for changes.<br>If there are any changes, NPM will rebuild.</p>
+<p>The same thing will be done with Nodemon.<br>Nodemon will restart Node, when the file changes.
+In our case it will only watch one file (example.js), but when it changes it will restart the server.</p>
+<p>To do this we need an extra file:</p>
+<ul>
+<li>package.json</li>
+</ul>
+<h2 id="package-json">package.json</h2>
+<p>Because we will be using NPM for more then only updating the &quot;devDependencies&quot;, we also need the &quot;scripts&quot;.</p>
+<pre><code>{
+    &quot;license&quot;: &quot;MIT&quot;,
+    &quot;description&quot;: &quot;Create a website with express&quot;,
+    &quot;author&quot;: &quot;Matthijs Kamstra aka [mck]&quot;,
+    &quot;private&quot;: true,
+    &quot;scripts&quot;: {
+        &quot;prewatch&quot;: &quot;haxe javascript.hxml&quot;,
+        &quot;watch&quot;: &quot;onchange &apos;**/*.hx&apos; &apos;**/*.md&apos; -v -- haxe javascript.hxml &amp; nodemon bin/example.js &amp; livereload bin/&quot;
+      },
+      &quot;devDependencies&quot;: {
+        &quot;livereload&quot;: &quot;^0.3.7&quot;,
+        &quot;nodemon&quot;: &quot;^1.7.1&quot;,
+        &quot;onchange&quot;: &quot;^2.0.0&quot;
+      }
+}
+</code></pre><h2 id="automate-almost-there">Automate! (almost there)</h2>
+<p>Now we have the correct files, we need to update the node modules.<br>So open the correct folder with you <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
 Alternative names for the terminal:  ">terminal</a></p>
-<pre><code>haxe -lib js-kit -js haxenode.js -main Haxenode
-node haxenode.js
-# Server running at http://127.0.0.1:1337/
-</code></pre>
+<p>Something like:</p>
+<pre><code>cd path/to/this/example/
+</code></pre><hr>
+<p>Now we update the <code>node_modules</code> so we don&apos;t get error that way (this is documented in <code>package.json</code>)</p>
+<pre><code>npm install
+</code></pre><p>This will create a new folder with modules-folders in it:</p>
+<pre><code>+ node_modules
+    + livereload
+    + nodemon
+    + onchange
+</code></pre><hr>
+<p>Start NPM watch so it will rebuild <code>javascript.hxml</code> as soon as file changes</p>
+<pre><code>npm run watch
+</code></pre><p>And your done!</p>
+<p>Cool huh!</p>
+<hr>
+<p>To stop the <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a> process</p>
+<pre><code>Ctrl + c
+</code></pre><h3 id="automation-win">Automation WIN!</h3>
+<p>So this way we have automated a lot!</p>
+<p>Lets look what we had to do before the automation:</p>
+<p><strong>First run:</strong></p>
+<ul>
+<li>Open <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a></li>
+<li>type <code>haxe javascript.hxml</code></li>
+<li>enter</li>
+<li>open Browser <code>http://localhost:8080</code></li>
+</ul>
+<p><strong>Updates:</strong></p>
+<ul>
+<li>CMD + TAB &gt; <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">Terminal</a></li>
+<li>CTRL + c (stop node)</li>
+<li>Cursor + UP (select previous state <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a>)</li>
+<li>Enter</li>
+<li>CMD + TAB &gt; Browser</li>
+<li>CMD + R</li>
+<li>CMD + TAB &gt; Sublime Text</li>
+<li>change files</li>
+<li>repeat</li>
+</ul>
+<hr>
+<p>And that is changed into:</p>
+<hr>
+<p><strong>First run:</strong></p>
+<ul>
+<li>Open <a href="../GLOSSARY.html#terminal" class="glossary-term" title="The terminal is an interface in which you can type and execute text based commands.
+Alternative names for the terminal:  ">terminal</a></li>
+<li>type <code>npm run watch</code></li>
+<li>enter</li>
+<li>open Browser <code>http://localhost:8080</code></li>
+</ul>
+<p><strong>Updates:</strong></p>
+<ul>
+<li>CMD + TAB &gt; Browser</li>
+<li>CMD + TAB &gt; Sublime Text</li>
+<li>change files</li>
+<li>repeat</li>
+</ul>
+<p>(or if you have two monitors, just see the updates on your second screen!!!!!)</p>
+<p><strong>win win win!</strong></p>
+<hr>
+
                     
                     </section>
                 
@@ -1117,10 +1233,10 @@ node haxenode.js
         </div>
 
         
-        <a href="../haxenode/download.html" class="navigation navigation-prev " aria-label="Previous page: Download"><i class="fa fa-angle-left"></i></a>
+        <a href="../11automation/example.html" class="navigation navigation-prev " aria-label="Previous page: Example"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../haxenode/resource.html" class="navigation navigation-next " aria-label="Next page: Resources"><i class="fa fa-angle-right"></i></a>
+        <a href="../follow.html" class="navigation navigation-next " aria-label="Next page: Who to follow"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
