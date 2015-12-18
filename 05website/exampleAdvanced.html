@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="8.4" data-basepath=".." data-revision="Wed Oct 07 2015 23:26:53 GMT+0200 (CEST)">
+    <div class="book" data-level="8.4" data-basepath=".." data-revision="Fri Dec 18 2015 17:00:53 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -252,6 +252,21 @@
                             <b>2.6.</b>
                         
                         Resources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="haxenode/cheatsheet.html">
+            
+                
+                    <a href="../haxenode/cheatsheet.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Cheatsheet
                     </a>
             
             
@@ -572,7 +587,7 @@
                         
                             <b>8.3.</b>
                         
-                        Example Internediate
+                        Example Intermediate
                     </a>
             
             
@@ -1102,7 +1117,6 @@ class MainAdvanced
     function new()
     {
         var app : Express   = new Express();
-        var server : Dynamic = Http.createServer(app);
 
         app.set(&apos;port&apos;, 3000);
         app.set(&apos;views&apos;, Node.__dirname + &apos;/public/views&apos;);
@@ -1135,26 +1149,12 @@ class MainAdvanced
             res.send(&apos;username: &apos; + username );
         });
 
-        // POST http://localhost:8080/api/users
-        // app.post(&apos;/api/users&apos;, function (req, res) {
-        //     var _req : Dynamic = req;
-        //     var _username = _req.body.username;
-        //     res.send(&apos;_username: &apos; + _username);
-        // });
-
-
-        // var sample = &quot;My name is &lt;strong&gt;::name::&lt;/strong&gt;, &lt;em&gt;::age::&lt;/em&gt; years old&quot;;
-        // var user = {name:&quot;Mark&quot;, age:30};
-        // var template = new haxe.Template(sample);
-        // var output = template.execute(user);
-        // trace(output);
-
         app.use(function(req, res, next) {
             res.status(404).send(&apos;404&apos;);
             // res.status(404).send(output);
         });
 
-        server.listen(app.get(&apos;port&apos;), function(){
+        app.listen(app.get(&apos;port&apos;), function(){
             trace(&apos;Express server listening on port &apos; + app.get(&apos;port&apos;));
         });
     }
@@ -1169,6 +1169,7 @@ class MainAdvanced
 This is the short version, you want to chech out the full version open this <a href="code/javascript.hxml">file</a>;</p>
 <pre><code># // javascript.hxml
 -lib js-kit
+-lib hxnodejs
 -cp src
 -main MainAdvanced
 -js bin/example.js
@@ -1194,7 +1195,7 @@ Alternative names for the terminal:  ">terminal</a></li>
         </div>
 
         
-        <a href="../05website/exampleIntermediate.html" class="navigation navigation-prev " aria-label="Previous page: Example Internediate"><i class="fa fa-angle-left"></i></a>
+        <a href="../05website/exampleIntermediate.html" class="navigation navigation-prev " aria-label="Previous page: Example Intermediate"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../06nedb/about.html" class="navigation navigation-next " aria-label="Next page: Example NeDB"><i class="fa fa-angle-right"></i></a>

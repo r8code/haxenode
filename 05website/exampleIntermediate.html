@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Example Internediate | Haxe and Node.js</title>
+        <title>Example Intermediate | Haxe and Node.js</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="8.3" data-basepath=".." data-revision="Wed Oct 07 2015 23:26:53 GMT+0200 (CEST)">
+    <div class="book" data-level="8.3" data-basepath=".." data-revision="Fri Dec 18 2015 17:00:53 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -252,6 +252,21 @@
                             <b>2.6.</b>
                         
                         Resources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="haxenode/cheatsheet.html">
+            
+                
+                    <a href="../haxenode/cheatsheet.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Cheatsheet
                     </a>
             
             
@@ -572,7 +587,7 @@
                         
                             <b>8.3.</b>
                         
-                        Example Internediate
+                        Example Intermediate
                     </a>
             
             
@@ -1095,7 +1110,6 @@ class MainIntermediate
     function new()
     {
         var app : Express   = new Express();
-        var server : Dynamic = Http.createServer(app);
 
         app.set(&apos;port&apos;, 3000);
         app.use(new Favicon(Node.__dirname + &apos;/public/favicon.ico&apos;));
@@ -1121,7 +1135,7 @@ class MainIntermediate
             res.status(404).send(&apos;404&apos;);
         });
 
-        server.listen(app.get(&apos;port&apos;), function(){
+        app.listen(app.get(&apos;port&apos;), function(){
             trace(&apos;Express server listening on port &apos; + app.get(&apos;port&apos;));
         });
     }
@@ -1135,6 +1149,7 @@ class MainIntermediate
 This is the short version, you want to chech out the full version open this <a href="code/javascript.hxml">file</a>;</p>
 <pre><code># // javascript.hxml
 -lib js-kit
+-lib hxnodejs
 -cp src
 -main MainIntermediate
 -js bin/example.js

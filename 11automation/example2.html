@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="12.3" data-basepath=".." data-revision="Wed Oct 07 2015 23:26:53 GMT+0200 (CEST)">
+    <div class="book" data-level="12.3" data-basepath=".." data-revision="Fri Dec 18 2015 17:00:53 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -252,6 +252,21 @@
                             <b>2.6.</b>
                         
                         Resources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="haxenode/cheatsheet.html">
+            
+                
+                    <a href="../haxenode/cheatsheet.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Cheatsheet
                     </a>
             
             
@@ -572,7 +587,7 @@
                         
                             <b>8.3.</b>
                         
-                        Example Internediate
+                        Example Intermediate
                     </a>
             
             
@@ -1090,6 +1105,7 @@ See example below:</p>
 import js.Node;
 import js.node.Http;
 import js.node.http.ServerResponse;
+import js.node.http.IncomingMessage;
 
 /**
  * @author Matthijs Kamstra aka [mck]
@@ -1100,7 +1116,7 @@ class Main
     {
         trace(&quot;Node.js Hello World Example&quot;);
 
-        Http.createServer(function (request:HttpServerReq, response:ServerResponse):Void {
+        Http.createServer(function (request:IncomingMessage, response:ServerResponse):Void {
             response.writeHead(200, {&apos;Content-Type&apos;: &apos;text/html&apos;});
 
             #if debug
@@ -1123,6 +1139,7 @@ class Main
 </code></pre><h2 id="the-haxe-build-file-javascript-hxml">The Haxe build file, javascript.<a href="../GLOSSARY.html#hxml" class="glossary-term" title="Haxe build file">hxml</a></h2>
 <p>Copy and past the following lines in a document named <code>javascript.hxml</code><br>This is the short version, you want to check out the full version open this <a href="code2/javascript.hxml">file</a>;</p>
 <pre><code>-lib js-kit
+-lib hxnodejs
 -cp src
 -main Main
 -js bin/example.js

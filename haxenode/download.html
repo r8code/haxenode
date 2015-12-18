@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="2.4" data-basepath=".." data-revision="Wed Oct 07 2015 23:26:53 GMT+0200 (CEST)">
+    <div class="book" data-level="2.4" data-basepath=".." data-revision="Fri Dec 18 2015 17:00:53 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -252,6 +252,21 @@
                             <b>2.6.</b>
                         
                         Resources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="haxenode/cheatsheet.html">
+            
+                
+                    <a href="../haxenode/cheatsheet.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Cheatsheet
                     </a>
             
             
@@ -572,7 +587,7 @@
                         
                             <b>8.3.</b>
                         
-                        Example Internediate
+                        Example Intermediate
                     </a>
             
             
@@ -1061,10 +1076,12 @@
 <p>Before you can use there are a couple of thing you need to do.</p>
 <p>Obviously you need to install Haxe. There are a <a href="../haxe/installation.html">couple of ways to do it</a>, but in this document I will only send you to the <a href="#haxe">official place</a>.</p>
 <p>Don&apos;t want to kick in some open doors, but before you can use Node.js ... you need to <a href="#node">install</a> that also.</p>
+<p>And a <a href="#ide">code editor</a> will be usefull!</p>
 <p>Last but not least, you need to install the <a href="#externs">Haxe Externs</a>. These are the &quot;translators&quot; from untyped node.js code to typed Haxe code. You only need to install the Node.js externs but get other fun stuff as wel. You will need them further on these documentation. </p>
+<hr>
 <p>Current versions are:  </p>
 <ul>
-<li><strong>Haxe</strong> v3.2.0</li>
+<li><strong>Haxe</strong> v3.2.1</li>
 <li><strong>Node.js</strong> v0.12.7</li>
 </ul>
 <p>But if the version numbers changed, it only means I haven&apos;t updated this part of the document in some time :D</p>
@@ -1080,10 +1097,15 @@
 <ul>
 <li>Get your version here: <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></li>
 </ul>
+<p><a name="ide"></a></p>
+<h2 id="code-editor">Code editor</h2>
+<p>If you work on Windows you should install <a href="http://www.flashdevelop.org" target="_blank">FlashDevelop</a>, on other platforms you should read this chapter: <a href="../haxe/choosing-a-code-editor.html">Choosing a Code Editor</a></p>
 <p><a name="externs"></a></p>
 <h2 id="externs">Externs</h2>
-<p>For now you need to install externs via haxelib.<br>But when Haxe hits version 3.2.1 you don&apos;t have to (the node externs will be part of the install).
-So for now, I advice to install the Haxe Externs from js-kit.<br><strong>(install this after you have installed Haxe; you need haxelib to install js-kit this way)</strong></p>
+<p>Install the <a href="https://github.com/HaxeFoundation/hxnodejs" target="_blank">official Haxe node.js externs</a> lib via <a href="http://lib.haxe.org/p/hxnodejs/" target="_blank">haxelib</a>.
+Haxelib is automaticly installed when installing Haxe and you can see it as a sort of NPM.</p>
+<pre><code>haxelib install hxnodejs
+</code></pre><p>In this tutorial I use mostly js-kit externs, there are more ways to get externs but the js-kit has a lot so it&apos;s more a one stop shop thing!   </p>
 <pre><code>haxelib git js-kit https://github.com/clemos/haxe-js-kit.git haxelib
 </code></pre>
                     

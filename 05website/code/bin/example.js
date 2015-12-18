@@ -1,22 +1,28 @@
 (function (console) { "use strict";
+var $estr = function() { return js_Boot.__string_rec(this,''); };
+function $extend(from, fields) {
+	function Inherit() {} Inherit.prototype = from; var proto = new Inherit();
+	for (var name in fields) proto[name] = fields[name];
+	if( fields.toString !== Object.prototype.toString ) proto.toString = fields.toString;
+	return proto;
+}
 var MainAdvanced = function() {
 	console.log("Express website (Advanced): open browser at http://localhost:3000");
 	console.log("Stop node.js : CTRL + c");
-	var app = new (Express__1||require("express"))();
-	var server = (Http__8||require("http")).createServer(app);
+	var app = new js_npm_Express();
 	app.set("port",3000);
-	app.set("views",js_Node.__dirname + "/public/views");
+	app.set("views",__dirname + "/public/views");
 	app.set("view engine","jade");
-	app["use"](new (Favicon__18||require("serve-favicon"))(js_Node.__dirname + "/public/favicon.ico"));
-	app["use"](new (Morgan__19||require("morgan"))("dev"));
-	app["use"]((BodyParser__20||require("body-parser")).json());
-	app["use"]((BodyParser__20||require("body-parser")).urlencoded());
-	app["use"](new (Static__21||require("express").static)((Path__7||require("path")).join(js_Node.__dirname,"public")));
+	app["use"](new js_npm_express_Favicon(__dirname + "/public/favicon.ico"));
+	app["use"](new js_npm_express_Morgan("dev"));
+	app["use"](js_npm_express_BodyParser.json());
+	app["use"](js_npm_express_BodyParser.urlencoded({ extended : true}));
+	app["use"](new js_npm_express_Static(js_node_Path.join(__dirname,"public")));
 	app.get("/",function(req,res) {
-		res.sendfile(js_Node.__dirname + "/public/index_advanced.html");
+		res.sendfile(__dirname + "/public/index_advanced.html");
 	});
 	app.get("/remote",function(req1,res1) {
-		res1.sendfile(js_Node.__dirname + "/public/remote_advanced.html");
+		res1.sendfile(__dirname + "/public/remote_intermediate.html");
 	});
 	app.get("/jade",function(req2,res2) {
 		res2.render("index",{ title : "Home", h1 : "Title"});
@@ -28,7 +34,7 @@ var MainAdvanced = function() {
 	app["use"](function(req4,res4,next) {
 		res4.status(404).send("404");
 	});
-	server.listen(app.get("port"),function() {
+	app.listen(app.get("port"),function() {
 		console.log("Express server listening on port " + Std.string(app.get("port")));
 	});
 };
@@ -36,14 +42,100 @@ MainAdvanced.__name__ = true;
 MainAdvanced.main = function() {
 	var main = new MainAdvanced();
 };
+MainAdvanced.prototype = {
+	__class__: MainAdvanced
+};
 Math.__name__ = true;
 var Std = function() { };
 Std.__name__ = true;
 Std.string = function(s) {
 	return js_Boot.__string_rec(s,"");
 };
+var haxe__$Int64__$_$_$Int64 = function(high,low) {
+	this.high = high;
+	this.low = low;
+};
+haxe__$Int64__$_$_$Int64.__name__ = true;
+haxe__$Int64__$_$_$Int64.prototype = {
+	__class__: haxe__$Int64__$_$_$Int64
+};
+var haxe_io_Error = { __ename__ : true, __constructs__ : ["Blocked","Overflow","OutsideBounds","Custom"] };
+haxe_io_Error.Blocked = ["Blocked",0];
+haxe_io_Error.Blocked.toString = $estr;
+haxe_io_Error.Blocked.__enum__ = haxe_io_Error;
+haxe_io_Error.Overflow = ["Overflow",1];
+haxe_io_Error.Overflow.toString = $estr;
+haxe_io_Error.Overflow.__enum__ = haxe_io_Error;
+haxe_io_Error.OutsideBounds = ["OutsideBounds",2];
+haxe_io_Error.OutsideBounds.toString = $estr;
+haxe_io_Error.OutsideBounds.__enum__ = haxe_io_Error;
+haxe_io_Error.Custom = function(e) { var $x = ["Custom",3,e]; $x.__enum__ = haxe_io_Error; $x.toString = $estr; return $x; };
+var haxe_io_FPHelper = function() { };
+haxe_io_FPHelper.__name__ = true;
+haxe_io_FPHelper.i32ToFloat = function(i) {
+	var sign = 1 - (i >>> 31 << 1);
+	var exp = i >>> 23 & 255;
+	var sig = i & 8388607;
+	if(sig == 0 && exp == 0) return 0.0;
+	return sign * (1 + Math.pow(2,-23) * sig) * Math.pow(2,exp - 127);
+};
+haxe_io_FPHelper.floatToI32 = function(f) {
+	if(f == 0) return 0;
+	var af;
+	if(f < 0) af = -f; else af = f;
+	var exp = Math.floor(Math.log(af) / 0.6931471805599453);
+	if(exp < -127) exp = -127; else if(exp > 128) exp = 128;
+	var sig = Math.round((af / Math.pow(2,exp) - 1) * 8388608) & 8388607;
+	return (f < 0?-2147483648:0) | exp + 127 << 23 | sig;
+};
+haxe_io_FPHelper.i64ToDouble = function(low,high) {
+	var sign = 1 - (high >>> 31 << 1);
+	var exp = (high >> 20 & 2047) - 1023;
+	var sig = (high & 1048575) * 4294967296. + (low >>> 31) * 2147483648. + (low & 2147483647);
+	if(sig == 0 && exp == -1023) return 0.0;
+	return sign * (1.0 + Math.pow(2,-52) * sig) * Math.pow(2,exp);
+};
+haxe_io_FPHelper.doubleToI64 = function(v) {
+	var i64 = haxe_io_FPHelper.i64tmp;
+	if(v == 0) {
+		i64.low = 0;
+		i64.high = 0;
+	} else {
+		var av;
+		if(v < 0) av = -v; else av = v;
+		var exp = Math.floor(Math.log(av) / 0.6931471805599453);
+		var sig;
+		var v1 = (av / Math.pow(2,exp) - 1) * 4503599627370496.;
+		sig = Math.round(v1);
+		var sig_l = sig | 0;
+		var sig_h = sig / 4294967296.0 | 0;
+		i64.low = sig_l;
+		i64.high = (v < 0?-2147483648:0) | exp + 1023 << 20 | sig_h;
+	}
+	return i64;
+};
+var js__$Boot_HaxeError = function(val) {
+	Error.call(this);
+	this.val = val;
+	this.message = String(val);
+	if(Error.captureStackTrace) Error.captureStackTrace(this,js__$Boot_HaxeError);
+};
+js__$Boot_HaxeError.__name__ = true;
+js__$Boot_HaxeError.__super__ = Error;
+js__$Boot_HaxeError.prototype = $extend(Error.prototype,{
+	__class__: js__$Boot_HaxeError
+});
 var js_Boot = function() { };
 js_Boot.__name__ = true;
+js_Boot.getClass = function(o) {
+	if((o instanceof Array) && o.__enum__ == null) return Array; else {
+		var cl = o.__class__;
+		if(cl != null) return cl;
+		var name = js_Boot.__nativeClassName(o);
+		if(name != null) return js_Boot.__resolveNativeClass(name);
+		return null;
+	}
+};
 js_Boot.__string_rec = function(o,s) {
 	if(o == null) return "null";
 	if(s.length >= 5) return "<...>";
@@ -80,6 +172,7 @@ js_Boot.__string_rec = function(o,s) {
 		try {
 			tostr = o.toString;
 		} catch( e ) {
+			if (e instanceof js__$Boot_HaxeError) e = e.val;
 			return "???";
 		}
 		if(tostr != null && tostr != Object.toString && typeof(tostr) == "function") {
@@ -111,40 +204,271 @@ js_Boot.__string_rec = function(o,s) {
 		return String(o);
 	}
 };
-var js_Node = function() { };
-js_Node.__name__ = true;
-var js_node_events_IEventEmitter = function() { };
-js_node_events_IEventEmitter.__name__ = true;
-var js_node_IHttpServerListener = function() { };
-js_node_IHttpServerListener.__name__ = true;
-var js_node_stream_IWritable = function() { };
-js_node_stream_IWritable.__name__ = true;
-js_node_stream_IWritable.__interfaces__ = [js_node_events_IEventEmitter];
+js_Boot.__interfLoop = function(cc,cl) {
+	if(cc == null) return false;
+	if(cc == cl) return true;
+	var intf = cc.__interfaces__;
+	if(intf != null) {
+		var _g1 = 0;
+		var _g = intf.length;
+		while(_g1 < _g) {
+			var i = _g1++;
+			var i1 = intf[i];
+			if(i1 == cl || js_Boot.__interfLoop(i1,cl)) return true;
+		}
+	}
+	return js_Boot.__interfLoop(cc.__super__,cl);
+};
+js_Boot.__instanceof = function(o,cl) {
+	if(cl == null) return false;
+	switch(cl) {
+	case Int:
+		return (o|0) === o;
+	case Float:
+		return typeof(o) == "number";
+	case Bool:
+		return typeof(o) == "boolean";
+	case String:
+		return typeof(o) == "string";
+	case Array:
+		return (o instanceof Array) && o.__enum__ == null;
+	case Dynamic:
+		return true;
+	default:
+		if(o != null) {
+			if(typeof(cl) == "function") {
+				if(o instanceof cl) return true;
+				if(js_Boot.__interfLoop(js_Boot.getClass(o),cl)) return true;
+			} else if(typeof(cl) == "object" && js_Boot.__isNativeObj(cl)) {
+				if(o instanceof cl) return true;
+			}
+		} else return false;
+		if(cl == Class && o.__name__ != null) return true;
+		if(cl == Enum && o.__ename__ != null) return true;
+		return o.__enum__ == cl;
+	}
+};
+js_Boot.__nativeClassName = function(o) {
+	var name = js_Boot.__toStr.call(o).slice(8,-1);
+	if(name == "Object" || name == "Function" || name == "Math" || name == "JSON") return null;
+	return name;
+};
+js_Boot.__isNativeObj = function(o) {
+	return js_Boot.__nativeClassName(o) != null;
+};
+js_Boot.__resolveNativeClass = function(name) {
+	return (Function("return typeof " + name + " != \"undefined\" ? " + name + " : null"))();
+};
+var js_html_compat_ArrayBuffer = function(a) {
+	if((a instanceof Array) && a.__enum__ == null) {
+		this.a = a;
+		this.byteLength = a.length;
+	} else {
+		var len = a;
+		this.a = [];
+		var _g = 0;
+		while(_g < len) {
+			var i = _g++;
+			this.a[i] = 0;
+		}
+		this.byteLength = len;
+	}
+};
+js_html_compat_ArrayBuffer.__name__ = true;
+js_html_compat_ArrayBuffer.sliceImpl = function(begin,end) {
+	var u = new Uint8Array(this,begin,end == null?null:end - begin);
+	var result = new ArrayBuffer(u.byteLength);
+	var resultArray = new Uint8Array(result);
+	resultArray.set(u);
+	return result;
+};
+js_html_compat_ArrayBuffer.prototype = {
+	slice: function(begin,end) {
+		return new js_html_compat_ArrayBuffer(this.a.slice(begin,end));
+	}
+	,__class__: js_html_compat_ArrayBuffer
+};
+var js_html_compat_DataView = function(buffer,byteOffset,byteLength) {
+	this.buf = buffer;
+	if(byteOffset == null) this.offset = 0; else this.offset = byteOffset;
+	if(byteLength == null) this.length = buffer.byteLength - this.offset; else this.length = byteLength;
+	if(this.offset < 0 || this.length < 0 || this.offset + this.length > buffer.byteLength) throw new js__$Boot_HaxeError(haxe_io_Error.OutsideBounds);
+};
+js_html_compat_DataView.__name__ = true;
+js_html_compat_DataView.prototype = {
+	getInt8: function(byteOffset) {
+		var v = this.buf.a[this.offset + byteOffset];
+		if(v >= 128) return v - 256; else return v;
+	}
+	,getUint8: function(byteOffset) {
+		return this.buf.a[this.offset + byteOffset];
+	}
+	,getInt16: function(byteOffset,littleEndian) {
+		var v = this.getUint16(byteOffset,littleEndian);
+		if(v >= 32768) return v - 65536; else return v;
+	}
+	,getUint16: function(byteOffset,littleEndian) {
+		if(littleEndian) return this.buf.a[this.offset + byteOffset] | this.buf.a[this.offset + byteOffset + 1] << 8; else return this.buf.a[this.offset + byteOffset] << 8 | this.buf.a[this.offset + byteOffset + 1];
+	}
+	,getInt32: function(byteOffset,littleEndian) {
+		var p = this.offset + byteOffset;
+		var a = this.buf.a[p++];
+		var b = this.buf.a[p++];
+		var c = this.buf.a[p++];
+		var d = this.buf.a[p++];
+		if(littleEndian) return a | b << 8 | c << 16 | d << 24; else return d | c << 8 | b << 16 | a << 24;
+	}
+	,getUint32: function(byteOffset,littleEndian) {
+		var v = this.getInt32(byteOffset,littleEndian);
+		if(v < 0) return v + 4294967296.; else return v;
+	}
+	,getFloat32: function(byteOffset,littleEndian) {
+		return haxe_io_FPHelper.i32ToFloat(this.getInt32(byteOffset,littleEndian));
+	}
+	,getFloat64: function(byteOffset,littleEndian) {
+		var a = this.getInt32(byteOffset,littleEndian);
+		var b = this.getInt32(byteOffset + 4,littleEndian);
+		return haxe_io_FPHelper.i64ToDouble(littleEndian?a:b,littleEndian?b:a);
+	}
+	,setInt8: function(byteOffset,value) {
+		if(value < 0) this.buf.a[byteOffset + this.offset] = value + 128 & 255; else this.buf.a[byteOffset + this.offset] = value & 255;
+	}
+	,setUint8: function(byteOffset,value) {
+		this.buf.a[byteOffset + this.offset] = value & 255;
+	}
+	,setInt16: function(byteOffset,value,littleEndian) {
+		this.setUint16(byteOffset,value < 0?value + 65536:value,littleEndian);
+	}
+	,setUint16: function(byteOffset,value,littleEndian) {
+		var p = byteOffset + this.offset;
+		if(littleEndian) {
+			this.buf.a[p] = value & 255;
+			this.buf.a[p++] = value >> 8 & 255;
+		} else {
+			this.buf.a[p++] = value >> 8 & 255;
+			this.buf.a[p] = value & 255;
+		}
+	}
+	,setInt32: function(byteOffset,value,littleEndian) {
+		this.setUint32(byteOffset,value,littleEndian);
+	}
+	,setUint32: function(byteOffset,value,littleEndian) {
+		var p = byteOffset + this.offset;
+		if(littleEndian) {
+			this.buf.a[p++] = value & 255;
+			this.buf.a[p++] = value >> 8 & 255;
+			this.buf.a[p++] = value >> 16 & 255;
+			this.buf.a[p++] = value >>> 24;
+		} else {
+			this.buf.a[p++] = value >>> 24;
+			this.buf.a[p++] = value >> 16 & 255;
+			this.buf.a[p++] = value >> 8 & 255;
+			this.buf.a[p++] = value & 255;
+		}
+	}
+	,setFloat32: function(byteOffset,value,littleEndian) {
+		this.setUint32(byteOffset,haxe_io_FPHelper.floatToI32(value),littleEndian);
+	}
+	,setFloat64: function(byteOffset,value,littleEndian) {
+		var i64 = haxe_io_FPHelper.doubleToI64(value);
+		if(littleEndian) {
+			this.setUint32(byteOffset,i64.low);
+			this.setUint32(byteOffset,i64.high);
+		} else {
+			this.setUint32(byteOffset,i64.high);
+			this.setUint32(byteOffset,i64.low);
+		}
+	}
+	,__class__: js_html_compat_DataView
+};
+var js_html_compat_Uint8Array = function() { };
+js_html_compat_Uint8Array.__name__ = true;
+js_html_compat_Uint8Array._new = function(arg1,offset,length) {
+	var arr;
+	if(typeof(arg1) == "number") {
+		arr = [];
+		var _g = 0;
+		while(_g < arg1) {
+			var i = _g++;
+			arr[i] = 0;
+		}
+		arr.byteLength = arr.length;
+		arr.byteOffset = 0;
+		arr.buffer = new js_html_compat_ArrayBuffer(arr);
+	} else if(js_Boot.__instanceof(arg1,js_html_compat_ArrayBuffer)) {
+		var buffer = arg1;
+		if(offset == null) offset = 0;
+		if(length == null) length = buffer.byteLength - offset;
+		if(offset == 0) arr = buffer.a; else arr = buffer.a.slice(offset,offset + length);
+		arr.byteLength = arr.length;
+		arr.byteOffset = offset;
+		arr.buffer = buffer;
+	} else if((arg1 instanceof Array) && arg1.__enum__ == null) {
+		arr = arg1.slice();
+		arr.byteLength = arr.length;
+		arr.byteOffset = 0;
+		arr.buffer = new js_html_compat_ArrayBuffer(arr);
+	} else throw new js__$Boot_HaxeError("TODO " + Std.string(arg1));
+	arr.subarray = js_html_compat_Uint8Array._subarray;
+	arr.set = js_html_compat_Uint8Array._set;
+	return arr;
+};
+js_html_compat_Uint8Array._set = function(arg,offset) {
+	var t = this;
+	if(js_Boot.__instanceof(arg.buffer,js_html_compat_ArrayBuffer)) {
+		var a = arg;
+		if(arg.byteLength + offset > t.byteLength) throw new js__$Boot_HaxeError("set() outside of range");
+		var _g1 = 0;
+		var _g = arg.byteLength;
+		while(_g1 < _g) {
+			var i = _g1++;
+			t[i + offset] = a[i];
+		}
+	} else if((arg instanceof Array) && arg.__enum__ == null) {
+		var a1 = arg;
+		if(a1.length + offset > t.byteLength) throw new js__$Boot_HaxeError("set() outside of range");
+		var _g11 = 0;
+		var _g2 = a1.length;
+		while(_g11 < _g2) {
+			var i1 = _g11++;
+			t[i1 + offset] = a1[i1];
+		}
+	} else throw new js__$Boot_HaxeError("TODO");
+};
+js_html_compat_Uint8Array._subarray = function(start,end) {
+	var t = this;
+	var a = js_html_compat_Uint8Array._new(t.slice(start,end));
+	a.byteOffset = start;
+	return a;
+};
+var js_node_Path = require("path");
+var js_npm_Express = require("express");
+var js_npm_express_BodyParser = require("body-parser");
+var js_npm_express_Favicon = require("serve-favicon");
+var js_npm_express_Morgan = require("morgan");
+var js_npm_express_Static = require("express").static;
+String.prototype.__class__ = String;
 String.__name__ = true;
 Array.__name__ = true;
-var Crypto__11 = require("crypto");
-var EventEmitter__3 = require("events").EventEmitter;
-var Http__8 = require("http");
-var Net__16 = require("net");
-var Path__7 = require("path");
-var Url__14 = require("url");
-var Stats__22 = require("fs").Stats;
-var Agent__9 = require("http").Agent;
-var ClientRequest__6 = require("http").ClientRequest;
-var Server__10 = require("http").Server;
-var Writable__4 = require("stream").Writable;
-var ServerResponse__5 = require("http").ServerResponse;
-var Server__17 = require("net").Server;
-var Socket__15 = require("net").Socket;
-var Duplex__12 = require("stream").Duplex;
-var Readable__13 = require("stream").Readable;
-var Express__1 = require("express");
-var Jade__0 = require("jade");
-var BodyParser__20 = require("body-parser");
-var Favicon__18 = require("serve-favicon");
-var Morgan__19 = require("morgan");
-var Router__2 = require("express").Router;
-var Static__21 = require("express")["static"];
-js_Node.__dirname = __dirname;
+var Int = { __name__ : ["Int"]};
+var Dynamic = { __name__ : ["Dynamic"]};
+var Float = Number;
+Float.__name__ = ["Float"];
+var Bool = Boolean;
+Bool.__ename__ = ["Bool"];
+var Class = { __name__ : ["Class"]};
+var Enum = { };
+var ArrayBuffer = (Function("return typeof ArrayBuffer != 'undefined' ? ArrayBuffer : null"))() || js_html_compat_ArrayBuffer;
+if(ArrayBuffer.prototype.slice == null) ArrayBuffer.prototype.slice = js_html_compat_ArrayBuffer.sliceImpl;
+var DataView = (Function("return typeof DataView != 'undefined' ? DataView : null"))() || js_html_compat_DataView;
+var Uint8Array = (Function("return typeof Uint8Array != 'undefined' ? Uint8Array : null"))() || js_html_compat_Uint8Array._new;
+haxe_io_FPHelper.i64tmp = (function($this) {
+	var $r;
+	var x = new haxe__$Int64__$_$_$Int64(0,0);
+	$r = x;
+	return $r;
+}(this));
+js_Boot.__toStr = {}.toString;
+js_html_compat_Uint8Array.BYTES_PER_ELEMENT = 1;
 MainAdvanced.main();
 })(typeof console != "undefined" ? console : {log:function(){}});

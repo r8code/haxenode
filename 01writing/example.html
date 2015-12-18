@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="4.2" data-basepath=".." data-revision="Wed Oct 07 2015 23:26:53 GMT+0200 (CEST)">
+    <div class="book" data-level="4.2" data-basepath=".." data-revision="Fri Dec 18 2015 17:00:53 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -252,6 +252,21 @@
                             <b>2.6.</b>
                         
                         Resources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="haxenode/cheatsheet.html">
+            
+                
+                    <a href="../haxenode/cheatsheet.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Cheatsheet
                     </a>
             
             
@@ -572,7 +587,7 @@
                         
                             <b>8.3.</b>
                         
-                        Example Internediate
+                        Example Intermediate
                     </a>
             
             
@@ -1091,19 +1106,17 @@ class Main
 {
     function new()
     {
-        trace(&quot;Node.js Hello World Example&quot;);
+        trace(&quot;Node.js writing Example&quot;);
 
-        Fs.writeFile(&apos;helloworld.txt&apos;, &apos;Hello World!&apos;);    
-
-        // this example code is closest to the pure node.js example
-        Fs.writeFile(&apos;hello.txt&apos;, &apos;hello&apos;, {}, function (err){
+        var str : String = &apos;Hello World!\nWritten on: &apos; + Date.now().toString();
+        // this code example is closest to the pure node.js example
+        Fs.writeFile(&apos;hello.txt&apos;, str, {}, function (err){
             if (err != null) 
                 trace( &quot;err: &quot; + err );
             else
                 trace(&apos;Hello &gt; hello.txt&apos;);
         });
     }
-
     static public function main()
     {
         var main = new Main();
@@ -1114,6 +1127,7 @@ class Main
 This is the short version, you want to chech out the full version open this <a href="code/javascript.hxml">file</a>;</p>
 <pre><code># // javascript.hxml
 -lib js-kit
+-lib hxnodejs
 -cp src
 -main Main
 -js bin/example.js
